@@ -14,6 +14,12 @@ services:
     volumes:
       - pgdata:/data/postgres
 
+#   redis:
+#     image: redis:alpine
+#     container_name: cache_currencies
+#     restart: always
+#     ports: 
+#       - 6379:6379
 
   # app:
   #   build: .
