@@ -1,15 +1,14 @@
 import "reflect-metadata";
 import "dotenv/config";
+import upload from "@config/upload";
+import * as Sentry from "@sentry/node";
+import * as Tracing from "@sentry/tracing";
 import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
 import "express-async-errors";
 import swaggerUi from "swagger-ui-express";
-
-import * as Sentry from "@sentry/node";
-import * as Tracing from "@sentry/tracing";
-
 import "@shared/container";
-import upload from "@config/upload";
+
 import { AppError } from "@shared/errors/AppError";
 import rateLimiter from "@shared/infra/http/middlewares/rateLimiter";
 import createConnection from "@shared/infra/typeorm";
@@ -47,7 +46,7 @@ app.use(router);
 app.use(Sentry.Handlers.errorHandler());
 
 app.use(
-    (err: Error, request: Request, response: Response, next: NextFunction) => {
+    (err: Error, request: Request, response: Response, _next: NextFunction) => {
         if (err instanceof AppError) {
             return response.status(err.statusCode).json({
                 message: err.message,
