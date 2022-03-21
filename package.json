@@ -7,6 +7,7 @@
         "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
         "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
         "test": "NODE_ENV=test jest --runInBand --detectOpenHandles",
+        "test:dev": "jest --watch --passWithNoTests",
         "seed:admin": "ts-node-dev -r tsconfig-paths/register  src/shared/infra/typeorm/seed/admin.ts"
     },
     "dependencies": {
