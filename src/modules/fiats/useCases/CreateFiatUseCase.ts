@@ -1,6 +1,7 @@
 import { inject, injectable } from "tsyringe";
 
 import { IFiatsRepository } from "../repositories/IFiatsRepository";
+import { Fiat } from "../typeorm/entities/Fiat";
 
 interface IRequest {
     name: string;
@@ -10,10 +11,10 @@ interface IRequest {
     sign: string;
 }
 
-// @injectable()
+@injectable()
 class CreateFiatUseCase {
     constructor(
-        // @inject("FiatsRepository")
+        @inject("FiatsRepository")
         private fiatsRepository: IFiatsRepository
     ) {}
 
@@ -23,14 +24,15 @@ class CreateFiatUseCase {
         description,
         symbol,
         sign,
-    }: IRequest): Promise<void> {
-        this.fiatsRepository.create({
+    }: IRequest): Promise<Fiat> {
+        const fiat = await this.fiatsRepository.create({
             name,
             country,
             description,
             symbol,
             sign,
         });
+        return fiat;
     }
 }
 

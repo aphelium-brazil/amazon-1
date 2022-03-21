@@ -1,13 +1,9 @@
 import { Router } from "express";
 
-import { carsRoutes } from "./cars.routes";
-import { categoriesRoutes } from "./categories.routes";
-import { specificationsRoutes } from "./specifications.routes";
+import { fiatsRoutes } from "./fiats.routes";
 
 const router = Router();
 
-router.use("/categories", categoriesRoutes);
-router.use("/specifications", specificationsRoutes);
-router.use("/cars", carsRoutes);
+router.use("/api/v1/fiats", fiatsRoutes);
 
 export { router };

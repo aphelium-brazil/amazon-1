@@ -12,10 +12,11 @@ class FiatsRepositoryInMemory implements IFiatsRepository {
         description,
         symbol,
         sign,
-    }: ICreateFiatDTO): Promise<void> {
+    }: ICreateFiatDTO): Promise<Fiat> {
         const fiat = new Fiat();
         Object.assign(fiat, { name, country, description, symbol, sign });
         this.fiats.push(fiat);
+        return fiat;
     }
 }
 

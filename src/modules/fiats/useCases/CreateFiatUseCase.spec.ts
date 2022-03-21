@@ -11,12 +11,16 @@ describe("Create Fiat", () => {
     });
 
     it("should create a new fiat", async () => {
-        await createFiatUseCase.execute({
+        const fiat = await createFiatUseCase.execute({
             name: "string",
             country: "string",
             description: "string",
             symbol: "string",
             sign: "string",
         });
+
+        console.log(fiat);
+
+        expect(fiat).toHaveProperty("id");
     });
 });
