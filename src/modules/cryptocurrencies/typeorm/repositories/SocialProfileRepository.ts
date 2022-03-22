@@ -1,16 +1,16 @@
 import { ICreateSocialProfileDTO } from "@modules/cryptocurrencies/dtos/ICreateSocialProfileDTO";
 import { ISocialProfileRepository } from "@modules/cryptocurrencies/repositories/ISocialProfileRepository";
-import { SocialProfile } from "@modules/cryptocurrencies/typeorm/entities/SocialProfile";
-import { inject, injectable } from "tsyringe";
+import { getRepository, Repository } from "typeorm";
+import { SocialProfile } from "../entities/SocialProfile";
 
-@injectable()
-class CreateSocialProfileUseCase {
-    constructor(
-        @inject("SocialProfileRepository")
-        private socialProfile: ISocialProfileRepository
-    ) {}
+class SocialProfileRepository implements ISocialProfileRepository {
+    private repository: Repository<SocialProfile>;
 
-    async execute({
+    constructor() {
+        this.repository = getRepository(SocialProfile);
+    }
+
+    async create({
         name,
         description,
         url,
@@ -18,7 +18,7 @@ class CreateSocialProfileUseCase {
         socialNetwork,
         official,
     }: ICreateSocialProfileDTO): Promise<SocialProfile> {
-        const socialProfile = await this.socialProfile.create({
+        const socialProfile = this.repository.create({
             name,
             description,
             url,
@@ -27,8 +27,9 @@ class CreateSocialProfileUseCase {
             official,
         });
 
+        await this.repository.save(socialProfile);
         return socialProfile;
     }
 }
 
-export { CreateSocialProfileUseCase };
+export { SocialProfileRepository };

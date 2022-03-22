@@ -22,8 +22,6 @@ describe("Create a cryptocurrency social profile", () => {
             official: true,
         });
 
-        console.log(socialProfile);
-
         expect(socialProfile).toHaveProperty("id");
     });
 });
