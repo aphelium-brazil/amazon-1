@@ -1,4 +1,4 @@
-import { BrokerRepositoryInMemory } from "@modules/broker/repositories/in-memory/BrokerRepositoryInMemory";
+import { BrokerRepositoryInMemory } from "@modules/brokers/repositories/in-memory/BrokerRepositoryInMemory";
 import { create } from "domain";
 import { CreateBrokerUseCase } from "./CreateBrokerUseCase";
 

@@ -1,5 +1,5 @@
-import { IBrokerRepository } from "@modules/broker/repositories/IBrokerRepository";
-import { Broker } from "@modules/broker/typeorm/entities/Broker";
+import { IBrokerRepository } from "@modules/brokers/repositories/IBrokerRepository";
+import { Broker } from "@modules/brokers/typeorm/entities/Broker";
 import { inject, injectable } from "tsyringe";
 
 interface IRequest {

@@ -1,4 +1,4 @@
-import { CreateBrokerController } from "@modules/broker/useCases/createBroker/CreateBrokerController";
+import { CreateBrokerController } from "@modules/brokers/useCases/createBroker/CreateBrokerController";
 import { Router } from "express";
 import multer from "multer";
 

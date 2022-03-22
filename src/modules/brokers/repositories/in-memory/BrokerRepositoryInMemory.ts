@@ -1,5 +1,5 @@
-import { ICreateBrokerDTO } from "@modules/broker/dtos/ICreateBrokerDTO";
-import { Broker } from "@modules/broker/typeorm/entities/Broker";
+import { ICreateBrokerDTO } from "@modules/brokers/dtos/ICreateBrokerDTO";
+import { Broker } from "@modules/brokers/typeorm/entities/Broker";
 import { IBrokerRepository } from "../IBrokerRepository";
 
 class BrokerRepositoryInMemory implements IBrokerRepository {
