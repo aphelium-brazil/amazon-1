@@ -1,4 +1,4 @@
-import { FiatsRepositoryInMemory } from "../repositories/in-memory/FiatsRepositoryInMemory";
+import { FiatsRepositoryInMemory } from "../../repositories/in-memory/FiatsRepositoryInMemory";
 import { CreateFiatUseCase } from "./CreateFiatUseCase";
 
 let createFiatUseCase: CreateFiatUseCase;
@@ -18,8 +18,6 @@ describe("Create Fiat", () => {
             symbol: "string",
             sign: "string",
         });
-
-        console.log(fiat);
 
         expect(fiat).toHaveProperty("id");
     });

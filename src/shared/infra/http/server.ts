@@ -4,7 +4,7 @@ import { app } from "./app";
 
 app.listen(3333, () => {
     try {
-        art.font("Currencies", "doom", (err: string, rendered: void) => {
+        art.font("Amazon-1", "doom", (err: string, rendered: void) => {
             console.log(
                 "-----------------------------------------------------------"
             );

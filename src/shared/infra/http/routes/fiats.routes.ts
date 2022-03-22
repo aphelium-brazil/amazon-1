@@ -1,4 +1,4 @@
-import { CreateFiatController } from "@modules/fiats/useCases/CreateFiatController";
+import { CreateFiatController } from "@modules/fiats/useCases/createFiat/CreateFiatController";
 import { Router } from "express";
 import multer from "multer";
 

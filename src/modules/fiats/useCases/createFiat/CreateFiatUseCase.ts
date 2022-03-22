@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
 
-import { IFiatsRepository } from "../repositories/IFiatsRepository";
-import { Fiat } from "../typeorm/entities/Fiat";
+import { IFiatsRepository } from "../../repositories/IFiatsRepository";
+import { Fiat } from "../../typeorm/entities/Fiat";
 
 interface IRequest {
     name: string;
