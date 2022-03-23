@@ -1,15 +1,8 @@
+import { ICreateFiatDTO } from "@modules/fiats/dtos/ICreateFiatDTO";
 import { inject, injectable } from "tsyringe";
 
 import { IFiatsRepository } from "../../repositories/IFiatsRepository";
 import { Fiat } from "../../typeorm/entities/Fiat";
-
-interface IRequest {
-    name: string;
-    country: string;
-    description: string;
-    symbol: string;
-    sign: string;
-}
 
 @injectable()
 class CreateFiatUseCase {
@@ -24,7 +17,7 @@ class CreateFiatUseCase {
         description,
         symbol,
         sign,
-    }: IRequest): Promise<Fiat> {
+    }: ICreateFiatDTO): Promise<Fiat> {
         const fiat = await this.fiatsRepository.create({
             name,
             country,
