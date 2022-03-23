@@ -6,7 +6,7 @@ import { inject, injectable } from "tsyringe";
 @injectable()
 class CreateSocialProfileUseCase {
     constructor(
-        @inject("SocialProfileRepository")
+        @inject("SocialProfilesRepository")
         private socialProfile: ISocialProfileRepository
     ) {}
 
