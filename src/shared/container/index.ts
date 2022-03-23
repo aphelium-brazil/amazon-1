@@ -6,6 +6,8 @@ import { IBrokerRepository } from "@modules/brokers/repositories/IBrokerReposito
 import { BrokersRepository } from "@modules/brokers/typeorm/repositories/BrokerRepository";
 import { ISocialProfileRepository } from "@modules/cryptocurrencies/repositories/ISocialProfileRepository";
 import { SocialProfilesRepository } from "@modules/cryptocurrencies/typeorm/repositories/SocialProfilesRepository";
+import { ICryptocurrencyRepository } from "@modules/cryptocurrencies/repositories/ICryptocurrencyRepository";
+import { CryptocurrenciesRepository } from "@modules/cryptocurrencies/typeorm/repositories/CryptocurrenciesRepository";
 
 container.registerSingleton<IFiatsRepository>(
     "FiatsRepository",
@@ -20,4 +22,9 @@ container.registerSingleton<IBrokerRepository>(
 container.registerSingleton<ISocialProfileRepository>(
     "SocialProfilesRepository",
     SocialProfilesRepository
+);
+
+container.registerSingleton<ICryptocurrencyRepository>(
+    "CryptocurrenciesRepository",
+    CryptocurrenciesRepository
 );
