@@ -3,7 +3,7 @@ import { ISocialProfileRepository } from "@modules/cryptocurrencies/repositories
 import { getRepository, Repository } from "typeorm";
 import { SocialProfile } from "../entities/SocialProfile";
 
-class SocialProfileRepository implements ISocialProfileRepository {
+class SocialProfilesRepository implements ISocialProfileRepository {
     private repository: Repository<SocialProfile>;
 
     constructor() {
@@ -32,4 +32,4 @@ class SocialProfileRepository implements ISocialProfileRepository {
     }
 }
 
-export { SocialProfileRepository };
+export { SocialProfilesRepository };

@@ -25,3 +25,4 @@ describe("Create a cryptocurrency social profile", () => {
         expect(socialProfile).toHaveProperty("id");
     });
 });
+

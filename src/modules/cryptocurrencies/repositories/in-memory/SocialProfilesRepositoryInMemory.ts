@@ -2,7 +2,7 @@ import { ICreateSocialProfileDTO } from "@modules/cryptocurrencies/dtos/ICreateS
 import { SocialProfile } from "@modules/cryptocurrencies/typeorm/entities/SocialProfile";
 import { ISocialProfileRepository } from "../ISocialProfileRepository";
 
-class SocialProfileRepositoryInMemory implements ISocialProfileRepository {
+class SocialProfilesRepositoryInMemory implements ISocialProfileRepository {
     socialProfiles: SocialProfile[] = [];
 
     async create({
@@ -30,4 +30,4 @@ class SocialProfileRepositoryInMemory implements ISocialProfileRepository {
     }
 }
 
-export { SocialProfileRepositoryInMemory };
+export { SocialProfilesRepositoryInMemory };
