@@ -1,8 +1,8 @@
 import { ICreateSocialProfileDTO } from "../dtos/ICreateSocialProfileDTO";
 import { SocialProfile } from "../typeorm/entities/SocialProfile";
 
-interface ISocialProfileRepository {
+interface ISocialProfilesRepository {
     create(data: ICreateSocialProfileDTO): Promise<SocialProfile>;
 }
 
-export { ISocialProfileRepository };
+export { ISocialProfilesRepository };

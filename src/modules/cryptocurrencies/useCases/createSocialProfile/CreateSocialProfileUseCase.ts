@@ -1,13 +1,13 @@
 import { ICreateSocialProfileDTO } from "@modules/cryptocurrencies/dtos/ICreateSocialProfileDTO";
-import { ISocialProfileRepository } from "@modules/cryptocurrencies/repositories/ISocialProfileRepository";
+import { ISocialProfilesRepository } from "@modules/cryptocurrencies/repositories/ISocialProfileRepository";
 import { SocialProfile } from "@modules/cryptocurrencies/typeorm/entities/SocialProfile";
 import { inject, injectable } from "tsyringe";
 
 @injectable()
 class CreateSocialProfileUseCase {
     constructor(
-        @inject("SocialProfileRepository")
-        private socialProfile: ISocialProfileRepository
+        @inject("SocialProfilesRepository")
+        private socialProfile: ISocialProfilesRepository
     ) {}
 
     async execute({

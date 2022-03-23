@@ -1,19 +1,19 @@
+import { SocialProfilesRepositoryInMemory } from "@modules/cryptocurrencies/repositories/in-memory/SocialProfileRepositoryInMemory";
 import { CreateSocialProfileUseCase } from "./CreateSocialProfileUseCase";
-import { SocialProfileRepositoryInMemory } from "../../repositories/in-memory/SocialProfileRepositoryInMemory";
 
-let createSocialProfileUseCase: CreateSocialProfileUseCase;
-let socialProfileRepositoryInMemory: SocialProfileRepositoryInMemory;
+let createSocialProfilesUseCase: CreateSocialProfileUseCase;
+let socialProfilesRepositoryInMemory: SocialProfilesRepositoryInMemory;
 
 describe("Create a cryptocurrency social profile", () => {
     beforeEach(() => {
-        socialProfileRepositoryInMemory = new SocialProfileRepositoryInMemory();
-        createSocialProfileUseCase = new CreateSocialProfileUseCase(
-            socialProfileRepositoryInMemory
+        socialProfilesRepositoryInMemory = new SocialProfilesRepositoryInMemory();
+        createSocialProfilesUseCase = new CreateSocialProfileUseCase(
+            socialProfilesRepositoryInMemory
         );
     });
 
     it("should create a new social profile", async () => {
-        const socialProfile = await createSocialProfileUseCase.execute({
+        const socialProfile = await createSocialProfilesUseCase.execute({
             name: "John Sample",
             description: "The twitter account of John Sample",
             url: "http://twitter.com/johnsample",
