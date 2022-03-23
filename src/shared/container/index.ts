@@ -8,7 +8,7 @@ import { BrokersRepository } from "@modules/brokers/typeorm/repositories/BrokerR
 import { IExplorerRepository } from "@modules/cryptocurrencies/repositories/IExplorerRepository";
 import { ExplorerRepository } from "@modules/cryptocurrencies/typeorm/repositories/ExplorerRepository";
 import { ISocialProfilesRepository } from "@modules/cryptocurrencies/repositories/ISocialProfileRepository";
-import { SocialProfilesRepository } from "@modules/cryptocurrencies/typeorm/repositories/SocialProfileRepository";
+import { SocialProfilesRepository } from "@modules/cryptocurrencies/typeorm/repositories/SocialProfilesRepository";
 
 container.registerSingleton<IFiatsRepository>(
     "FiatsRepository",
