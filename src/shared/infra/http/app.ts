@@ -1,5 +1,5 @@
-import "reflect-metadata";
 import "dotenv/config";
+import "reflect-metadata";
 import upload from "@config/upload";
 import * as Sentry from "@sentry/node";
 import * as Tracing from "@sentry/tracing";

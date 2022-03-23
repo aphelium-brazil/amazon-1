@@ -8,6 +8,7 @@ export default {
     collectCoverageFrom: ["<rootDir>/src/modules/**/useCases/**/*.ts"],
     coverageDirectory: "coverage",
     coverageProvider: "v8",
+    setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
     coverageReporters: ["text-summary", "lcov"],
     moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
         prefix: "<rootDir>/src/",
