@@ -1,17 +1,21 @@
-import { CreateCryptocurrencyController } from "@modules/cryptocurrencies/useCases/createCryptocurrency/CreateCryptocurrencyController";
+import { CreateExplorerController } from "@modules/cryptocurrencies/useCases/createExplorer/CreateExplorerController";
 import { CreateSocialProfileController } from "@modules/cryptocurrencies/useCases/createSocialProfile/CreateSocialProfileController";
 import { Router } from "express";
 
 const cryptocurrenciesRoutes = Router();
 
-const createCryptocurrencyController = new CreateCryptocurrencyController();
 const createSocialProfileController = new CreateSocialProfileController();
 
-cryptocurrenciesRoutes.post("/", createCryptocurrencyController.handle);
+const createExplorerController = new CreateExplorerController();
 
 cryptocurrenciesRoutes.post(
     "/socialprofiles",
     createSocialProfileController.handle
 );
+
+cryptocurrenciesRoutes.post(
+    "/explorer",
+    createExplorerController.handle
+)
 
 export { cryptocurrenciesRoutes };

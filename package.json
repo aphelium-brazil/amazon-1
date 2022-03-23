@@ -8,7 +8,6 @@
         "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
         "test": "NODE_ENV=test jest --runInBand --detectOpenHandles",
         "test:dev": "jest --watch --passWithNoTests",
-        "test:clear": "jest --clear-cache",
         "seed:admin": "ts-node-dev -r tsconfig-paths/register  src/shared/infra/typeorm/seed/admin.ts"
     },
     "dependencies": {
@@ -73,3 +72,4 @@
         "typescript": "^4.6.2"
     }
 }
+
