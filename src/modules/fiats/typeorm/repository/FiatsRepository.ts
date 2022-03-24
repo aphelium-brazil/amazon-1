@@ -9,6 +9,14 @@ class FiatsRepository implements IFiatsRepository {
     constructor() {
         this.repository = getRepository(Fiat);
     }
+    async findById(id: string): Promise<Fiat> {
+        const fiat = await this.repository.findOne(id);
+        return fiat;
+    }
+    async findByName(name: string): Promise<Fiat> {
+        const fiat = await this.repository.findOne({ name });
+        return fiat;
+    }
 
     async create({
         name,

@@ -5,6 +5,17 @@ import { ICryptocurrencyRepository } from "../ICryptocurrencyRepository";
 class CryptocurrenciesRepositoryInMemory implements ICryptocurrencyRepository {
     cryptocurrencies: Cryptocurrency[] = [];
 
+    async findById(id: string): Promise<Cryptocurrency> {
+        return this.cryptocurrencies.find(
+            (cryptocurrency) => cryptocurrency.id === id
+        );
+    }
+    async findByName(name: string): Promise<Cryptocurrency> {
+        return this.cryptocurrencies.find(
+            (cryptocurrency) => cryptocurrency.name === name
+        );
+    }
+
     async create({
         name,
         description,

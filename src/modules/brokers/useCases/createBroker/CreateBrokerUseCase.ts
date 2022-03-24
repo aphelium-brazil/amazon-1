@@ -1,5 +1,6 @@
 import { IBrokerRepository } from "@modules/brokers/repositories/IBrokerRepository";
 import { Broker } from "@modules/brokers/typeorm/entities/Broker";
+import { AppError } from "@shared/errors/AppError";
 import { inject, injectable } from "tsyringe";
 
 interface IRequest {
@@ -14,7 +15,7 @@ interface IRequest {
 class CreateBrokerUseCase {
     constructor(
         @inject("BrokersRepository")
-        private brokerRegistry: IBrokerRepository
+        private brokerRepository: IBrokerRepository
     ) {}
 
     async execute({
@@ -24,7 +25,15 @@ class CreateBrokerUseCase {
         logo,
         dateLaunched,
     }: IRequest): Promise<Broker> {
-        const broker = await this.brokerRegistry.create({
+        const brokerAlreadyExists = await this.brokerRepository.findByName(
+            name
+        );
+
+        if (brokerAlreadyExists) {
+            throw new AppError("Broker already exists!");
+        }
+
+        const broker = await this.brokerRepository.create({
             name,
             description,
             slug,

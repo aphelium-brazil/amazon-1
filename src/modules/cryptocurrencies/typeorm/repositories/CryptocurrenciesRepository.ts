@@ -9,6 +9,14 @@ class CryptocurrenciesRepository implements ICryptocurrencyRepository {
     constructor() {
         this.repository = getRepository(Cryptocurrency);
     }
+    async findById(id: string): Promise<Cryptocurrency> {
+        const cryptocurrency = await this.repository.findOne(id);
+        return cryptocurrency;
+    }
+    async findByName(name: string): Promise<Cryptocurrency> {
+        const cryptocurrency = await this.repository.findOne({ name });
+        return cryptocurrency;
+    }
     async create({
         name,
         description,

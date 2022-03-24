@@ -6,6 +6,14 @@ import { IFiatsRepository } from "../IFiatsRepository";
 class FiatsRepositoryInMemory implements IFiatsRepository {
     fiats: Fiat[] = [];
 
+    async findById(id: string): Promise<Fiat> {
+        return this.fiats.find((fiat) => fiat.id === id);
+    }
+
+    async findByName(name: string): Promise<Fiat> {
+        return this.fiats.find((fiat) => fiat.name === name);
+    }
+
     async create({
         name,
         country,
@@ -16,6 +24,7 @@ class FiatsRepositoryInMemory implements IFiatsRepository {
         const fiat = new Fiat();
         Object.assign(fiat, { name, country, description, symbol, sign });
         this.fiats.push(fiat);
+
         return fiat;
     }
 }

@@ -1,5 +1,6 @@
 import { Coin } from "@modules/coin/typeorm/entities/Coin";
-import { Column, Entity } from "typeorm";
+import { Swap } from "@modules/swap/typeorm/entities/Swap";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from "typeorm";
 @Entity("cryptocurrencies")
 class Cryptocurrency extends Coin {
     @Column()

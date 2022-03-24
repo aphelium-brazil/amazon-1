@@ -10,6 +10,16 @@ class BrokersRepository implements IBrokerRepository {
         this.repository = getRepository(Broker);
     }
 
+    async findById(id: string): Promise<Broker> {
+        const broker = await this.repository.findOne(id);
+        return broker;
+    }
+
+    async findByName(name: string): Promise<Broker> {
+        const broker = await this.repository.findOne({ name });
+        return broker;
+    }
+
     async create({
         name,
         description,
