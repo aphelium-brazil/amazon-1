@@ -12,7 +12,7 @@ app.listen(3333, () => {
             console.log(rendered);
 
             console.log(
-                `Build with ❤ by Aphelium.   |   Version: ${process.env.VERSION}`
+                `Build with ❤  by Aphelium.   |   Version: ${process.env.VERSION}`
             );
 
             console.log(

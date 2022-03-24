@@ -1,12 +1,13 @@
 import { ICreateCryptocurrencyDTO } from "@modules/cryptocurrencies/dtos/ICreateCryptocurrencyDTO";
 import { ICryptocurrencyRepository } from "@modules/cryptocurrencies/repositories/ICryptocurrencyRepository";
 import { Cryptocurrency } from "@modules/cryptocurrencies/typeorm/entities/Cryptocurrency";
+import { AppError } from "@shared/errors/AppError";
 import { inject, injectable } from "tsyringe";
 @injectable()
 class CreateCryptocurrencyUseCase {
     constructor(
         @inject("CryptocurrenciesRepository")
-        private cryptocurrency: ICryptocurrencyRepository
+        private cryptocurrencyRepository: ICryptocurrencyRepository
     ) {}
 
     async execute({
@@ -38,7 +39,14 @@ class CreateCryptocurrencyUseCase {
         categoryName,
         categoryDescription,
     }: ICreateCryptocurrencyDTO): Promise<Cryptocurrency> {
-        const cryptocurrency = await this.cryptocurrency.create({
+        const cryptocurrencyAlreadyExists =
+            await this.cryptocurrencyRepository.findByName(name);
+
+        if (cryptocurrencyAlreadyExists) {
+            throw new AppError("Cryptocurrency already exists!");
+        }
+
+        const cryptocurrency = await this.cryptocurrencyRepository.create({
             name,
             description,
             logo,

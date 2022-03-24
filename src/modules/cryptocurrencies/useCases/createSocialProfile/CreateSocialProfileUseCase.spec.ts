@@ -1,14 +1,15 @@
 import { CreateSocialProfileUseCase } from "./CreateSocialProfileUseCase";
-import { SocialProfileRepositoryInMemory } from "../../repositories/in-memory/SocialProfileRepositoryInMemory";
+import { SocialProfilesRepositoryInMemory } from "../../repositories/in-memory/SocialProfilesRepositoryInMemory";
 
 let createSocialProfileUseCase: CreateSocialProfileUseCase;
-let socialProfileRepositoryInMemory: SocialProfileRepositoryInMemory;
+let socialProfilesRepositoryInMemory: SocialProfilesRepositoryInMemory;
 
 describe("Create a cryptocurrency social profile", () => {
     beforeEach(() => {
-        socialProfileRepositoryInMemory = new SocialProfileRepositoryInMemory();
+        socialProfilesRepositoryInMemory =
+            new SocialProfilesRepositoryInMemory();
         createSocialProfileUseCase = new CreateSocialProfileUseCase(
-            socialProfileRepositoryInMemory
+            socialProfilesRepositoryInMemory
         );
     });
 
@@ -25,4 +26,3 @@ describe("Create a cryptocurrency social profile", () => {
         expect(socialProfile).toHaveProperty("id");
     });
 });
-

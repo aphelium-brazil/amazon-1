@@ -1,3 +1,4 @@
+import { AppError } from "@shared/errors/AppError";
 import { FiatsRepositoryInMemory } from "../../repositories/in-memory/FiatsRepositoryInMemory";
 import { CreateFiatUseCase } from "./CreateFiatUseCase";
 
@@ -20,5 +21,25 @@ describe("Create Fiat", () => {
         });
 
         expect(fiat).toHaveProperty("id");
+    });
+
+    it("should not create fiat if exists one with the same name", async () => {
+        await createFiatUseCase.execute({
+            name: "string",
+            country: "string",
+            description: "string",
+            symbol: "string",
+            sign: "string",
+        });
+
+        await expect(
+            createFiatUseCase.execute({
+                name: "string",
+                country: "string",
+                description: "string",
+                symbol: "string",
+                sign: "string",
+            })
+        ).rejects.toEqual(new AppError("Fiat already exists!"));
     });
 });

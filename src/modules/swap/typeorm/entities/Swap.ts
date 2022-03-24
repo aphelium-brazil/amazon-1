@@ -1,32 +1,27 @@
-import { Swap } from "@modules/swap/typeorm/entities/Swap";
+import { v4 as uuidV4 } from "uuid";
+
 import {
     Column,
     CreateDateColumn,
     Entity,
-    JoinColumn,
-    JoinTable,
-    ManyToMany,
-    ManyToOne,
     PrimaryColumn,
     UpdateDateColumn,
 } from "typeorm";
-import { v4 as uuidV4 } from "uuid";
 
-@Entity()
-abstract class Coin {
+@Entity("swaps")
+class Swap {
     @PrimaryColumn()
     id: string;
+
     @Column()
     name: string;
+
     @Column()
-    description: string;
-    @Column()
-    symbol: string;
-    @Column()
-    sign: string;
+    isActive: boolean;
 
     @CreateDateColumn()
     createdAt: Date;
+
     @UpdateDateColumn()
     updatedAt: Date;
 
@@ -37,4 +32,4 @@ abstract class Coin {
     }
 }
 
-export { Coin };
+export { Swap };

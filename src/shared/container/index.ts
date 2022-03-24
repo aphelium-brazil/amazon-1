@@ -5,9 +5,13 @@ import { container } from "tsyringe";
 import { IBrokerRepository } from "@modules/brokers/repositories/IBrokerRepository";
 import { BrokersRepository } from "@modules/brokers/typeorm/repositories/BrokerRepository";
 import { ISocialProfileRepository } from "@modules/cryptocurrencies/repositories/ISocialProfileRepository";
-import { SocialProfileRepository } from "@modules/cryptocurrencies/typeorm/repositories/SocialProfileRepository";
+import { SocialProfilesRepository } from "@modules/cryptocurrencies/typeorm/repositories/SocialProfilesRepository";
 import { IExplorerRepository } from "@modules/cryptocurrencies/repositories/IExplorerRepository";
 import { ExplorerRepository } from "@modules/cryptocurrencies/typeorm/repositories/ExplorerRepository";
+import { ICryptocurrencyRepository } from "@modules/cryptocurrencies/repositories/ICryptocurrencyRepository";
+import { CryptocurrenciesRepository } from "@modules/cryptocurrencies/typeorm/repositories/CryptocurrenciesRepository";
+import { ISwapsRepository } from "@modules/swap/repositories/ISwapsRepository";
+import { SwapsRepository } from "@modules/swap/typeorm/repositories/SwapsRepository";
 
 container.registerSingleton<IFiatsRepository>(
     "FiatsRepository",
@@ -20,8 +24,8 @@ container.registerSingleton<IBrokerRepository>(
 );
 
 container.registerSingleton<ISocialProfileRepository>(
-    "SocialProfileRepository",
-    SocialProfileRepository
+    "SocialProfilesRepository",
+    SocialProfilesRepository
 );
 
 container.registerSingleton<IExplorerRepository>(
@@ -29,6 +33,12 @@ container.registerSingleton<IExplorerRepository>(
     ExplorerRepository
 );
 
+container.registerSingleton<ICryptocurrencyRepository>(
+    "CryptocurrenciesRepository",
+    CryptocurrenciesRepository
+);
 
-
-
+container.registerSingleton<ISwapsRepository>(
+    "SwapsRepository",
+    SwapsRepository
+);

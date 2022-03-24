@@ -1,4 +1,5 @@
 import { ICreateFiatDTO } from "@modules/fiats/dtos/ICreateFiatDTO";
+import { AppError } from "@shared/errors/AppError";
 import { inject, injectable } from "tsyringe";
 
 import { IFiatsRepository } from "../../repositories/IFiatsRepository";
@@ -18,6 +19,12 @@ class CreateFiatUseCase {
         symbol,
         sign,
     }: ICreateFiatDTO): Promise<Fiat> {
+        const fiatAlreadyExists = await this.fiatsRepository.findByName(name);
+
+        if (fiatAlreadyExists) {
+            throw new AppError("Fiat already exists!");
+        }
+
         const fiat = await this.fiatsRepository.create({
             name,
             country,

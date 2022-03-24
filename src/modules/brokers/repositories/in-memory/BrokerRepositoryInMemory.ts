@@ -5,6 +5,14 @@ import { IBrokerRepository } from "../IBrokerRepository";
 class BrokerRepositoryInMemory implements IBrokerRepository {
     brokers: Broker[] = [];
 
+    async findById(id: string): Promise<Broker> {
+        return this.brokers.find((broker) => broker.id === id);
+    }
+
+    async findByName(name: string): Promise<Broker> {
+        return this.brokers.find((broker) => broker.name === name);
+    }
+
     async create({
         name,
         description,
