@@ -5,18 +5,18 @@ import {
     TableForeignKey,
 } from "typeorm";
 
-export class cryptosSwap1648148203461 implements MigrationInterface {
+export class cryptoFiatSwap1648202511848 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "cryptosSwap",
+                name: "cryptoFiatSwap",
                 columns: [
                     {
                         name: "swapId",
                         type: "uuid",
                     },
                     {
-                        name: "cryptoId",
+                        name: "coinsId",
                         type: "uuid",
                     },
                     {
@@ -34,9 +34,9 @@ export class cryptosSwap1648148203461 implements MigrationInterface {
         );
 
         await queryRunner.createForeignKey(
-            "cryptosSwap",
+            "cryptoFiatSwap",
             new TableForeignKey({
-                name: "FKSwapId",
+                name: "FKSwapCryptoFiatId",
                 referencedTableName: "swaps",
                 referencedColumnNames: ["id"],
                 columnNames: ["swapId"],
@@ -46,12 +46,24 @@ export class cryptosSwap1648148203461 implements MigrationInterface {
         );
 
         await queryRunner.createForeignKey(
-            "cryptosSwap",
+            "cryptoFiatSwap",
             new TableForeignKey({
-                name: "FKCryptosId",
+                name: "FKCryptoFiatId",
                 referencedTableName: "cryptocurrencies",
                 referencedColumnNames: ["id"],
-                columnNames: ["cryptoId"],
+                columnNames: ["coinsId"],
+                onDelete: "SET NULL",
+                onUpdate: "SET NULL",
+            })
+        );
+
+        await queryRunner.createForeignKey(
+            "cryptoFiatSwap",
+            new TableForeignKey({
+                name: "FKFiatCryptoId",
+                referencedTableName: "fiats",
+                referencedColumnNames: ["id"],
+                columnNames: ["coinsId"],
                 onDelete: "SET NULL",
                 onUpdate: "SET NULL",
             })
@@ -59,8 +71,9 @@ export class cryptosSwap1648148203461 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropForeignKey("cryptosSwap", "FKCryptosId");
-        await queryRunner.dropForeignKey("cryptosSwap", "FKSwapId");
+        await queryRunner.dropForeignKey("cryptosSwap", "FKFiatCryptoId");
+        await queryRunner.dropForeignKey("cryptosSwap", "FKCryptoFiatId");
+        await queryRunner.dropForeignKey("cryptosSwap", "FKSwapCryptoFiatId");
         await await queryRunner.dropTable("cryptosSwap");
     }
 }
