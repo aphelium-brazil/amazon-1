@@ -2,12 +2,13 @@ import { ICreateSwapDTO } from "@modules/swap/dtos/ICreateSwapDTO";
 import { ISwapsRepository } from "@modules/swap/repositories/ISwapsRepository";
 import { getRepository, Repository } from "typeorm";
 import { Swap } from "../entities/Swap";
+import { SwapCryptos } from "../entities/SwapCryptos";
 
-class SwapsRepository implements ISwapsRepository {
+class SwapsCryptosRepository implements ISwapsRepository {
     private repository: Repository<Swap>;
 
     constructor() {
-        this.repository = getRepository(Swap);
+        this.repository = getRepository(SwapCryptos);
     }
 
     async findById(id: string): Promise<Swap> {
@@ -15,10 +16,12 @@ class SwapsRepository implements ISwapsRepository {
         return swap;
     }
 
-    async create({ name, isActive }: ICreateSwapDTO): Promise<Swap> {
+    async create({ name, isActive, coins, id }: ICreateSwapDTO): Promise<Swap> {
         const swap = await this.repository.create({
+            id,
             name,
             isActive,
+            coins,
         });
 
         await this.repository.save(swap);
@@ -27,4 +30,4 @@ class SwapsRepository implements ISwapsRepository {
     }
 }
 
-export { SwapsRepository };
+export { SwapsCryptosRepository };

@@ -14,6 +14,7 @@ export class swaps1648148185134 implements MigrationInterface {
                     {
                         name: "name",
                         type: "varchar",
+                        isUnique: true,
                     },
                     {
                         name: "isActive",

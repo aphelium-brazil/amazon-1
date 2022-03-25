@@ -12,6 +12,7 @@ import { ICryptocurrencyRepository } from "@modules/cryptocurrencies/repositorie
 import { CryptocurrenciesRepository } from "@modules/cryptocurrencies/typeorm/repositories/CryptocurrenciesRepository";
 import { ISwapsRepository } from "@modules/swap/repositories/ISwapsRepository";
 import { SwapsRepository } from "@modules/swap/typeorm/repositories/SwapsRepository";
+import { SwapsCryptosRepository } from "@modules/swap/typeorm/repositories/SwapsCryptosRepository";
 
 container.registerSingleton<IFiatsRepository>(
     "FiatsRepository",
@@ -41,4 +42,9 @@ container.registerSingleton<ICryptocurrencyRepository>(
 container.registerSingleton<ISwapsRepository>(
     "SwapsRepository",
     SwapsRepository
+);
+
+container.registerSingleton<ISwapsRepository>(
+    "SwapsCryptosRepository",
+    SwapsCryptosRepository
 );

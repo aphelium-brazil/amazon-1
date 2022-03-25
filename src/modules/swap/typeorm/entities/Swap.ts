@@ -4,20 +4,26 @@ import {
     Column,
     CreateDateColumn,
     Entity,
+    JoinTable,
+    ManyToMany,
     PrimaryColumn,
     UpdateDateColumn,
 } from "typeorm";
+import { Cryptocurrency } from "@modules/cryptocurrencies/typeorm/entities/Cryptocurrency";
+import { Fiat } from "@modules/fiats/typeorm/entities/Fiat";
 
 @Entity("swaps")
 class Swap {
     @PrimaryColumn()
-    id: string;
+    id?: string;
 
     @Column()
     name: string;
 
     @Column()
     isActive: boolean;
+
+    coins: any;
 
     @CreateDateColumn()
     createdAt: Date;
