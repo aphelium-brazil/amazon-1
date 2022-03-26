@@ -9,9 +9,7 @@ import {
     PrimaryColumn,
     UpdateDateColumn,
 } from "typeorm";
-import { Cryptocurrency } from "@modules/cryptocurrencies/typeorm/entities/Cryptocurrency";
-import { Fiat } from "@modules/fiats/typeorm/entities/Fiat";
-
+import { Coin } from "@modules/coin/typeorm/entities/Coin";
 @Entity("swaps")
 class Swap {
     @PrimaryColumn()
@@ -23,13 +21,25 @@ class Swap {
     @Column()
     isActive: boolean;
 
-    coins: any;
-
     @CreateDateColumn()
     createdAt: Date;
 
     @UpdateDateColumn()
     updatedAt: Date;
+
+    @ManyToMany(() => Coin)
+    @JoinTable({
+        name: "swapCoins", // table name for the junction table of this relation
+        joinColumn: {
+            name: "swapId",
+            referencedColumnName: "id",
+        },
+        inverseJoinColumn: {
+            name: "coinId",
+            referencedColumnName: "id",
+        },
+    })
+    coins: Coin[];
 
     constructor() {
         if (!this.id) {
