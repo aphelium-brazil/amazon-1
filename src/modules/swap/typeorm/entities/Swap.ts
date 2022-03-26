@@ -29,7 +29,7 @@ class Swap {
 
     @ManyToMany(() => Coin)
     @JoinTable({
-        name: "swapCoins", // table name for the junction table of this relation
+        name: "swapsCoins", // table name for the junction table of this relation
         joinColumn: {
             name: "swapId",
             referencedColumnName: "id",

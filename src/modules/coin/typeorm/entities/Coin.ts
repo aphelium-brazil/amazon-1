@@ -60,7 +60,6 @@ class Coin {
     @Column()
     techDocUrl: string;
     @Column()
-    @Column()
     techDocCreatedAt: Date;
     @Column()
     techDocUpdatedAt: Date;

@@ -5,11 +5,11 @@ import {
     TableForeignKey,
 } from "typeorm";
 
-export class swapCoins1648148185134 implements MigrationInterface {
+export class swapsBrokers1648286245655 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "swapCoins",
+                name: "swapsBrokers",
                 columns: [
                     {
                         name: "swapId",
@@ -17,7 +17,7 @@ export class swapCoins1648148185134 implements MigrationInterface {
                         isNullable: true,
                     },
                     {
-                        name: "coinId",
+                        name: "brokerId",
                         type: "uuid",
                         isNullable: true,
                     },
@@ -36,9 +36,9 @@ export class swapCoins1648148185134 implements MigrationInterface {
         );
 
         await queryRunner.createForeignKey(
-            "swapCoins",
+            "swapsBrokers",
             new TableForeignKey({
-                name: "FKSwapId",
+                name: "FKSwapTwoId",
                 referencedTableName: "swaps",
                 referencedColumnNames: ["id"],
                 columnNames: ["swapId"],
@@ -48,12 +48,12 @@ export class swapCoins1648148185134 implements MigrationInterface {
         );
 
         await queryRunner.createForeignKey(
-            "swapCoins",
+            "swapsBrokers",
             new TableForeignKey({
-                name: "FKCoinsId",
-                referencedTableName: "coins",
+                name: "FKBrokersId",
+                referencedTableName: "brokers",
                 referencedColumnNames: ["id"],
-                columnNames: ["coinId"],
+                columnNames: ["brokerId"],
                 onDelete: "SET NULL",
                 onUpdate: "SET NULL",
             })
@@ -61,8 +61,8 @@ export class swapCoins1648148185134 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropForeignKey("swapCoins", "FKCoinsId");
-        await queryRunner.dropForeignKey("swapCoins", "FKSwapId");
-        await queryRunner.dropTable("swaps");
+        await queryRunner.dropForeignKey("swapsBrokers", "FKBrokersId");
+        await queryRunner.dropForeignKey("swapsBrokers", "FKSwapTwoId");
+        await queryRunner.dropTable("swapsBrokers");
     }
 }

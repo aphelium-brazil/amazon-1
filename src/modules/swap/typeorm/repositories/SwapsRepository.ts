@@ -15,8 +15,8 @@ class SwapsRepository implements ISwapsRepository {
         return swaps;
     }
 
-    async findById(id: string): Promise<Swap> {
-        const swap = await this.repository.findOne(id);
+    async findByIds(ids: string[]): Promise<Swap[]> {
+        const swap = await this.repository.findByIds(ids);
         return swap;
     }
 

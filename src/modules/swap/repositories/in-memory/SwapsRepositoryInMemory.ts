@@ -9,8 +9,8 @@ class SwapsRepositoryInMemory implements ISwapsRepository {
         return this.swaps;
     }
 
-    async findById(id: string): Promise<Swap> {
-        return this.swaps.find((swap) => swap.id === id);
+    async findByIds(ids: string[]): Promise<Swap[]> {
+        return this.swaps.filter((swap) => ids.includes(swap.id));
     }
 
     async create({ id, name, coins, isActive }: ICreateSwapDTO): Promise<Swap> {
