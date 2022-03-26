@@ -5,15 +5,18 @@ import { ISwapsRepository } from "../ISwapsRepository";
 class SwapsRepositoryInMemory implements ISwapsRepository {
     swaps: Swap[] = [];
 
+    async listAll(): Promise<Swap[]> {
+        return this.swaps;
+    }
+
     async findById(id: string): Promise<Swap> {
         return this.swaps.find((swap) => swap.id === id);
     }
 
-    async create({ name, isActive }: ICreateSwapDTO): Promise<Swap> {
+    async create({ id, name, coins, isActive }: ICreateSwapDTO): Promise<Swap> {
         const swap = new Swap();
-        Object.assign(swap, { name, isActive });
+        Object.assign(swap, { id, name, coins, isActive });
         this.swaps.push(swap);
-
         return swap;
     }
 }

@@ -10,14 +10,21 @@ class SwapsRepository implements ISwapsRepository {
         this.repository = getRepository(Swap);
     }
 
+    async listAll(): Promise<Swap[]> {
+        const swaps = await this.repository.find({ relations: ["coins"] });
+        return swaps;
+    }
+
     async findById(id: string): Promise<Swap> {
         const swap = await this.repository.findOne(id);
         return swap;
     }
 
-    async create({ name, isActive }: ICreateSwapDTO): Promise<Swap> {
+    async create({ id, name, coins, isActive }: ICreateSwapDTO): Promise<Swap> {
         const swap = await this.repository.create({
+            id,
             name,
+            coins,
             isActive,
         });
 
