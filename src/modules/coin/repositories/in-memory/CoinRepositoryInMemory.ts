@@ -12,8 +12,8 @@ class CoinRepositoryInMemory implements ICoinsRepository {
         return this.coins.find((coin) => coin.symbol === symbol);
     }
 
-    async findById(id: string): Promise<Coin> {
-        return this.coins.find((coin) => coin.id === id);
+    async findByIds(ids: string[]): Promise<Coin[]> {
+        return this.coins.filter((coin) => ids.includes(coin.id));
     }
     async findByName(name: string): Promise<Coin> {
         return this.coins.find((coin) => coin.name === name);

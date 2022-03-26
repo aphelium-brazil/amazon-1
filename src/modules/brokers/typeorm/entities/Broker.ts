@@ -1,7 +1,11 @@
+import { Coin } from "@modules/coin/typeorm/entities/Coin";
+import { Swap } from "@modules/swap/typeorm/entities/Swap";
 import {
     Column,
     CreateDateColumn,
     Entity,
+    JoinTable,
+    ManyToMany,
     PrimaryColumn,
     UpdateDateColumn,
 } from "typeorm";
@@ -21,6 +25,35 @@ class Broker {
     logo: string;
     @Column()
     dateLaunched: Date;
+
+    @ManyToMany(() => Swap)
+    @JoinTable({
+        name: "swapsBrokers",
+        joinColumn: {
+            name: "brokerId",
+            referencedColumnName: "id",
+        },
+        inverseJoinColumn: {
+            name: "swapId",
+            referencedColumnName: "id",
+        },
+    })
+    swaps: Swap[];
+
+    // @ManyToMany(() => Coin)
+    // @JoinTable({
+    //     name: "swapsCoins",
+    //     joinColumn: {
+    //         name: "brokerId",
+    //         referencedColumnName: "id",
+    //     },
+    //     inverseJoinColumn: {
+    //         name: "swapId",
+    //         referencedColumnName: "id",
+    //     },
+    // })
+    // coins: Coin[];
+
     @CreateDateColumn()
     createdAt: Date;
     @UpdateDateColumn()

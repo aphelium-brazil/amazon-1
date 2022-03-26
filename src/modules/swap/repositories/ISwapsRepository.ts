@@ -3,7 +3,7 @@ import { Swap } from "../typeorm/entities/Swap";
 
 interface ISwapsRepository {
     create(data: ICreateSwapDTO): Promise<Swap>;
-    findById(id: string): Promise<Swap>;
+    findByIds(ids: string[]): Promise<Swap[]>;
     listAll(): Promise<Swap[]>;
 }
 

@@ -69,10 +69,10 @@ class CoinsRepository implements ICoinsRepository {
         return coin;
     }
     async all(): Promise<Coin[]> {
-        await this.repository.find();
+        return await this.repository.find();
     }
-    async findById(id: string): Promise<Coin> {
-        const coin = await this.repository.findOne(id);
+    async findByIds(ids: string[]): Promise<Coin[]> {
+        const coin = await this.repository.findByIds(ids);
         return coin;
     }
     async findByName(name: string): Promise<Coin> {

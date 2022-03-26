@@ -21,18 +21,22 @@ class BrokersRepository implements IBrokerRepository {
     }
 
     async create({
+        id,
         name,
         description,
         slug,
         logo,
         dateLaunched,
+        swaps,
     }: ICreateBrokerDTO): Promise<Broker> {
         const broker = this.repository.create({
+            id,
             name,
             description,
             slug,
             logo,
             dateLaunched,
+            swaps,
         });
 
         await this.repository.save(broker);
