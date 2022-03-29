@@ -13,7 +13,7 @@ import { Coin } from "@modules/coin/typeorm/entities/Coin";
 @Entity("swaps")
 class Swap {
     @PrimaryColumn()
-    id?: string;
+    id: string;
 
     @Column()
     name: string;

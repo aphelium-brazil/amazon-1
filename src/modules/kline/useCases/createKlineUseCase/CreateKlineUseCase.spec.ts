@@ -1,5 +1,6 @@
 import { BrokerRepositoryInMemory } from "@modules/brokers/repositories/in-memory/BrokerRepositoryInMemory";
 import { CreateBrokerUseCase } from "@modules/brokers/useCases/createBroker/CreateBrokerUseCase";
+import { IntervalEnums } from "@modules/kline/enums/IntervalEnums";
 import { KlineRepositoryInMemory } from "@modules/kline/repositories/in-memory/KlineRepositoryInMemory";
 import { SwapsRepositoryInMemory } from "@modules/swap/repositories/in-memory/SwapsRepositoryInMemory";
 import { CreateSwapUseCase } from "@modules/swap/useCases/createSwapUseCase/CreateSwapUseCase";
@@ -44,12 +45,10 @@ describe("Create Kline", () => {
         });
 
         const kline = await createKlineUseCase.execute({
-            interval: "1m",
+            interval: IntervalEnums["1m"],
             swapId: swap.id,
             brokerId: broker.id,
         });
-
-        console.log(kline);
 
         expect(kline).toHaveProperty("id");
     });
