@@ -1,5 +1,7 @@
+import { IntervalEnums } from "../enums/IntervalEnums";
+
 interface ICreateKlineDTO {
-    interval: string;
+    interval: IntervalEnums;
     swapId: string;
     brokerId: string;
     candles?: any[];

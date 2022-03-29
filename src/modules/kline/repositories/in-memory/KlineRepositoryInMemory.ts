@@ -1,6 +1,6 @@
 import { ICreateKlineDTO } from "@modules/kline/dtos/ICreateKlineDTO";
 import { Kline } from "@modules/kline/typeorm/entities/Kline";
-import { IKlineRepository } from "../IKlinesRepository";
+import { IKlineRepository } from "../IKlineRepository";
 
 class KlineRepositoryInMemory implements IKlineRepository {
     private klines: Kline[] = [];
@@ -28,8 +28,8 @@ class KlineRepositoryInMemory implements IKlineRepository {
         let klines = this.klines.filter((kline) => {
             if (
                 kline.interval === interval &&
-                kline.brokerId.id === brokerId &&
-                kline.swapId.id === swapId
+                kline.brokerId === brokerId &&
+                kline.swapId === swapId
             ) {
                 return true;
             }

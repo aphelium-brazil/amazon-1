@@ -48,6 +48,9 @@ describe("Create Kline", () => {
             swapId: swap.id,
             brokerId: broker.id,
         });
+
+        console.log(kline);
+
         expect(kline).toHaveProperty("id");
     });
 });

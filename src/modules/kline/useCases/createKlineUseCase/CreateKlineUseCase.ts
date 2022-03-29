@@ -1,14 +1,19 @@
 import { IBrokerRepository } from "@modules/brokers/repositories/IBrokerRepository";
 import { ICreateKlineDTO } from "@modules/kline/dtos/ICreateKlineDTO";
-import { IKlineRepository } from "@modules/kline/repositories/IKlinesRepository";
+import { IKlineRepository } from "@modules/kline/repositories/IKlineRepository";
 import { Kline } from "@modules/kline/typeorm/entities/Kline";
 import { ISwapsRepository } from "@modules/swap/repositories/ISwapsRepository";
 import { AppError } from "@shared/errors/AppError";
+import { inject, injectable } from "tsyringe";
 
+@injectable()
 class CreateKlineUseCase {
     constructor(
+        @inject("KlineRepository")
         private klineRepository: IKlineRepository,
+        @inject("SwapsRepository")
         private swapRepository: ISwapsRepository,
+        @inject("BrokersRepository")
         private brokerRepository: IBrokerRepository
     ) {}
 

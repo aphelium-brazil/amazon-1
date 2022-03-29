@@ -11,7 +11,7 @@ class ExplorerRepository implements IExplorerRepository {
     }
 
     async create({
-        name,  
+        name,
         description,
         url,
     }: ICreateExplorerDTO): Promise<Explorer> {
