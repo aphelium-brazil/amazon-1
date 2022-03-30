@@ -1,5 +1,6 @@
-import { ICreateExplorerDTO } from "@modules/cryptocurrencies/dtos/ICreateExplorerDTO";
-import { IExplorerRepository } from "@modules/cryptocurrencies/repositories/IExplorerRepository";
+
+import { ICreateExplorerDTO } from "@modules/coin/dtos/ICreateExplorerDTO";
+import { IExplorerRepository } from "@modules/coin/repositories/IExplorerRepository";
 import { getRepository, Repository } from "typeorm";
 import { Explorer } from "../entities/Explorer";
 
