@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { container } from "tsyringe";
 import { CreateKlineUseCase } from "./CreateKlineUseCase";
 
-class CreateKlineController {
+export class CreateKlineController {
     async handle(request: Request, response: Response): Promise<Response> {
         const { interval, brokerId, swapId } = request.body;
 
@@ -17,5 +17,3 @@ class CreateKlineController {
         return response.status(201).send();
     }
 }
-
-export { CreateKlineController };

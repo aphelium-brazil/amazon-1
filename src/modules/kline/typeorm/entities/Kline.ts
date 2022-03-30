@@ -9,7 +9,7 @@ import {
 import { v4 as uuidV4 } from "uuid";
 
 @Entity("klines")
-class Kline {
+export class Kline {
     @PrimaryColumn()
     id: string;
 
@@ -40,4 +40,3 @@ class Kline {
     }
 }
 
-export { Kline };

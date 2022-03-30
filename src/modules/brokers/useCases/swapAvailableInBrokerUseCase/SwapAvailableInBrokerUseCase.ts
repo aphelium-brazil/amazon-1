@@ -4,7 +4,7 @@ import { Broker } from "@modules/brokers/typeorm/entities/Broker";
 import { ISwapsRepository } from "@modules/swap/repositories/ISwapsRepository";
 import { inject, injectable } from "tsyringe";
 
-@injectable()
+@injectable() export 
 class SwapAvailableInBrokerUseCase {
     constructor(
         @inject("SwapsRepository")
@@ -30,5 +30,3 @@ class SwapAvailableInBrokerUseCase {
         return brokerExists;
     }
 }
-
-export { SwapAvailableInBrokerUseCase };

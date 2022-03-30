@@ -7,7 +7,7 @@ import { AppError } from "@shared/errors/AppError";
 import { inject, injectable } from "tsyringe";
 
 @injectable()
-class CreateKlineUseCase {
+export class CreateKlineUseCase {
     constructor(
         @inject("KlineRepository")
         private klineRepository: IKlineRepository,
@@ -56,5 +56,3 @@ class CreateKlineUseCase {
         return kline;
     }
 }
-
-export { CreateKlineUseCase };

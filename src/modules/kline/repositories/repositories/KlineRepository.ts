@@ -3,7 +3,7 @@ import { Kline } from "@modules/kline/typeorm/entities/Kline";
 import { getRepository, Repository } from "typeorm";
 import { IKlineRepository } from "../IKlineRepository";
 
-class KlineRepository implements IKlineRepository {
+export class KlineRepository implements IKlineRepository {
     private repository: Repository<Kline>;
 
     constructor() {
@@ -43,5 +43,3 @@ class KlineRepository implements IKlineRepository {
         return klines;
     }
 }
-
-export { KlineRepository };

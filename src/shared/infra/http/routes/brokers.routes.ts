@@ -3,7 +3,7 @@ import { SwapAvailableInBrokerController } from "@modules/brokers/useCases/swapA
 import { Router } from "express";
 import multer from "multer";
 
-const brokersRoutes = Router();
+export const brokersRoutes = Router();
 
 const createBrokerController = new CreateBrokerController();
 const swapAvailableInBrokerController = new SwapAvailableInBrokerController();
@@ -11,4 +11,3 @@ const swapAvailableInBrokerController = new SwapAvailableInBrokerController();
 brokersRoutes.post("/", createBrokerController.handle);
 brokersRoutes.post("/swaps/:id", swapAvailableInBrokerController.handle);
 
-export { brokersRoutes };

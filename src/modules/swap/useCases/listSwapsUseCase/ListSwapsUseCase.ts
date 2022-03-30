@@ -3,7 +3,7 @@ import { Swap } from "@modules/swap/typeorm/entities/Swap";
 import { inject, injectable } from "tsyringe";
 
 @injectable()
-class ListSwapsUseCase {
+export class ListSwapsUseCase {
     constructor(
         @inject("SwapsRepository")
         private swapsRepository: ISwapsRepository
@@ -15,4 +15,3 @@ class ListSwapsUseCase {
     }
 }
 
-export { ListSwapsUseCase };

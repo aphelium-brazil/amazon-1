@@ -1,4 +1,4 @@
-enum IntervalEnums {
+export enum IntervalEnums {
     "1m" = "1m",
     "3m" = "3m",
     "5m" = "5m",
@@ -15,5 +15,3 @@ enum IntervalEnums {
     "1w" = "1w",
     "1M" = "1M",
 }
-
-export { IntervalEnums };

@@ -3,7 +3,7 @@ import { ISwapsRepository } from "@modules/swap/repositories/ISwapsRepository";
 import { getRepository, Repository } from "typeorm";
 import { Swap } from "../entities/Swap";
 
-class SwapsRepository implements ISwapsRepository {
+export class SwapsRepository implements ISwapsRepository {
     private repository: Repository<Swap>;
 
     constructor() {
@@ -33,5 +33,3 @@ class SwapsRepository implements ISwapsRepository {
         return swap;
     }
 }
-
-export { SwapsRepository };

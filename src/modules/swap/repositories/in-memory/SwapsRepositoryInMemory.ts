@@ -2,7 +2,7 @@ import { ICreateSwapDTO } from "@modules/swap/dtos/ICreateSwapDTO";
 import { Swap } from "@modules/swap/typeorm/entities/Swap";
 import { ISwapsRepository } from "../ISwapsRepository";
 
-class SwapsRepositoryInMemory implements ISwapsRepository {
+export class SwapsRepositoryInMemory implements ISwapsRepository {
     swaps: Swap[] = [];
 
     async listAll(): Promise<Swap[]> {
@@ -21,4 +21,3 @@ class SwapsRepositoryInMemory implements ISwapsRepository {
     }
 }
 
-export { SwapsRepositoryInMemory };

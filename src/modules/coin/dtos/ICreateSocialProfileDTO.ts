@@ -1,4 +1,4 @@
-interface ICreateSocialProfileDTO {
+export interface ICreateSocialProfileDTO {
     name: string;
     description: string;
     url: string;
@@ -7,4 +7,3 @@ interface ICreateSocialProfileDTO {
     official: boolean;
 }
 
-export { ICreateSocialProfileDTO };

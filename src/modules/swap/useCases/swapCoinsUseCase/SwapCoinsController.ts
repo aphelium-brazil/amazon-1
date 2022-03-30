@@ -2,7 +2,7 @@ import { Response, Request } from "express";
 import { container } from "tsyringe";
 import { SwapCoinsUseCase } from "./SwapCoinsUseCase";
 
-class SwapCoinsController {
+export class SwapCoinsController {
     async handle(request: Request, response: Response): Promise<Response> {
         const { id } = request.params;
         const { fromId, toId } = request.body;
@@ -19,4 +19,3 @@ class SwapCoinsController {
     }
 }
 
-export { SwapCoinsController };

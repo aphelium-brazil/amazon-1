@@ -16,7 +16,8 @@ import swaggerFile from "../../../swagger.json";
 import { router } from "./routes";
 
 createConnection();
-const app = express();
+
+export const app = express();
 
 Sentry.init({
     dsn: process.env.SENTRY_DSN,
@@ -55,5 +56,3 @@ app.use(
         });
     }
 );
-
-export { app };

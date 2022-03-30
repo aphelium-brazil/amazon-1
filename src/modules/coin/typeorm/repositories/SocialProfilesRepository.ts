@@ -1,8 +1,8 @@
-import { ICreateSocialProfileDTO } from "@modules/cryptocurrencies/dtos/ICreateSocialProfileDTO";
-import { ISocialProfileRepository } from "@modules/cryptocurrencies/repositories/ISocialProfileRepository";
+import { ICreateSocialProfileDTO } from "@modules/coin/dtos/ICreateSocialProfileDTO";
+import { ISocialProfileRepository } from "@modules/coin/repositories/ISocialProfileRepository";
 import { getRepository, Repository } from "typeorm";
 import { SocialProfile } from "../entities/SocialProfile";
-
+export 
 class SocialProfilesRepository implements ISocialProfileRepository {
     private repository: Repository<SocialProfile>;
 
@@ -31,5 +31,3 @@ class SocialProfilesRepository implements ISocialProfileRepository {
         return socialProfile;
     }
 }
-
-export { SocialProfilesRepository };

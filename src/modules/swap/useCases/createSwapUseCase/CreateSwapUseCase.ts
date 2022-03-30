@@ -3,7 +3,7 @@ import { ISwapsRepository } from "@modules/swap/repositories/ISwapsRepository";
 import { inject, injectable } from "tsyringe";
 
 @injectable()
-class CreateSwapUseCase {
+export class CreateSwapUseCase {
     constructor(
         @inject("SwapsRepository")
         private swapsRepository: ISwapsRepository
@@ -15,4 +15,3 @@ class CreateSwapUseCase {
     }
 }
 
-export { CreateSwapUseCase };

@@ -2,7 +2,7 @@ import { ICreateBrokerDTO } from "@modules/brokers/dtos/ICreateBrokerDTO";
 import { Broker } from "@modules/brokers/typeorm/entities/Broker";
 import { IBrokerRepository } from "../IBrokerRepository";
 
-class BrokerRepositoryInMemory implements IBrokerRepository {
+export class BrokerRepositoryInMemory implements IBrokerRepository {
     brokers: Broker[] = [];
 
     async findById(id: string): Promise<Broker> {
@@ -36,4 +36,3 @@ class BrokerRepositoryInMemory implements IBrokerRepository {
     }
 }
 
-export { BrokerRepositoryInMemory };

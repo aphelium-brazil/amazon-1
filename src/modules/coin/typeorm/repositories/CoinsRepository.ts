@@ -3,7 +3,7 @@ import { ICoinsRepository } from "@modules/coin/repositories/ICoinRepository";
 import { getRepository, Repository } from "typeorm";
 import { Coin } from "../entities/Coin";
 
-class CoinsRepository implements ICoinsRepository {
+export class CoinsRepository implements ICoinsRepository {
     private repository: Repository<Coin>;
 
     constructor() {
@@ -84,5 +84,3 @@ class CoinsRepository implements ICoinsRepository {
         return coin;
     }
 }
-
-export { CoinsRepository };

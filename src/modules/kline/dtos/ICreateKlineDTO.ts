@@ -1,5 +1,5 @@
 import { IntervalEnums } from "../enums/IntervalEnums";
-
+export 
 interface ICreateKlineDTO {
     interval: IntervalEnums;
     swapId: string;
@@ -7,4 +7,3 @@ interface ICreateKlineDTO {
     candles?: any[];
 }
 
-export { ICreateKlineDTO };

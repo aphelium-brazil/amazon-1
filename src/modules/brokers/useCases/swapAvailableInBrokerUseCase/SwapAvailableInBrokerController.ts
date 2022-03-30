@@ -1,7 +1,7 @@
 import { Response, Request } from "express";
 import { container } from "tsyringe";
 import { SwapAvailableInBrokerUseCase } from "./SwapAvailableInBrokerUseCase";
-
+export 
 class SwapAvailableInBrokerController {
     async handle(request: Request, response: Response): Promise<Response> {
         const { id } = request.params;
@@ -20,4 +20,3 @@ class SwapAvailableInBrokerController {
     }
 }
 
-export { SwapAvailableInBrokerController };

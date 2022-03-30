@@ -2,7 +2,7 @@ import { ICreateKlineDTO } from "@modules/kline/dtos/ICreateKlineDTO";
 import { Kline } from "@modules/kline/typeorm/entities/Kline";
 import { IKlineRepository } from "../IKlineRepository";
 
-class KlineRepositoryInMemory implements IKlineRepository {
+export class KlineRepositoryInMemory implements IKlineRepository {
     private klines: Kline[] = [];
 
     async create({
@@ -38,5 +38,3 @@ class KlineRepositoryInMemory implements IKlineRepository {
         return klines;
     }
 }
-
-export { KlineRepositoryInMemory };

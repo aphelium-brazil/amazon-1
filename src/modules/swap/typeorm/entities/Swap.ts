@@ -11,7 +11,7 @@ import {
 } from "typeorm";
 import { Coin } from "@modules/coin/typeorm/entities/Coin";
 @Entity("swaps")
-class Swap {
+export class Swap {
     @PrimaryColumn()
     id: string;
 
@@ -48,4 +48,3 @@ class Swap {
     }
 }
 
-export { Swap };

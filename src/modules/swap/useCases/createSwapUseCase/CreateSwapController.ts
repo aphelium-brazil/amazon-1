@@ -2,7 +2,7 @@ import { Response, Request } from "express";
 import { container } from "tsyringe";
 import { CreateSwapUseCase } from "./CreateSwapUseCase";
 
-class CreateSwapController {
+export class CreateSwapController {
     async handle(request: Request, response: Response): Promise<Response> {
         const { name, isActive } = request.body;
 
@@ -16,5 +16,3 @@ class CreateSwapController {
         return response.status(201).send();
     }
 }
-
-export { CreateSwapController };
