@@ -12,7 +12,7 @@ import {
 import { v4 as uuidV4 } from "uuid";
 
 @Entity("brokers")
-class Broker {
+export class Broker {
     @PrimaryColumn()
     id: string;
     @Column()
@@ -66,4 +66,3 @@ class Broker {
     }
 }
 
-export { Broker };

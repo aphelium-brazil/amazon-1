@@ -1,6 +1,6 @@
 import { Swap } from "@modules/swap/typeorm/entities/Swap";
 
-interface ICreateBrokerDTO {
+ export interface ICreateBrokerDTO {
     id?: string;
     name: string;
     description: string;
@@ -9,5 +9,3 @@ interface ICreateBrokerDTO {
     dateLaunched: Date;
     swaps?: Swap[];
 }
-
-export { ICreateBrokerDTO };

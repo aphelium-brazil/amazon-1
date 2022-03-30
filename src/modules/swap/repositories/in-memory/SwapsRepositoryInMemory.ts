@@ -2,7 +2,7 @@ import { ICreateSwapDTO } from "@modules/swap/dtos/ICreateSwapDTO";
 import { Swap } from "@modules/swap/typeorm/entities/Swap";
 import { ISwapsRepository } from "../ISwapsRepository";
 
-class SwapsRepositoryInMemory implements ISwapsRepository {
+export class SwapsRepositoryInMemory implements ISwapsRepository {
     swaps: Swap[] = [];
 
     async listAll(): Promise<Swap[]> {
@@ -13,12 +13,11 @@ class SwapsRepositoryInMemory implements ISwapsRepository {
         return this.swaps.filter((swap) => ids.includes(swap.id));
     }
 
-    async create({ id, name, coins, isActive }: ICreateSwapDTO): Promise<Swap> {
+    async create({ name, coins, isActive }: ICreateSwapDTO): Promise<Swap> {
         const swap = new Swap();
-        Object.assign(swap, { id, name, coins, isActive });
+        Object.assign(swap, { name, coins, isActive });
         this.swaps.push(swap);
         return swap;
     }
 }
 
-export { SwapsRepositoryInMemory };

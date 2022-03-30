@@ -3,7 +3,7 @@ import { ICoinsRepository } from "@modules/coin/repositories/ICoinRepository";
 import { Coin } from "@modules/coin/typeorm/entities/Coin";
 import { AppError } from "@shared/errors/AppError";
 import { inject, injectable } from "tsyringe";
-@injectable()
+@injectable() export 
 class CreateCoinUseCase {
     constructor(
         @inject("CoinsRepository")
@@ -93,5 +93,3 @@ class CreateCoinUseCase {
         return coin;
     }
 }
-
-export { CreateCoinUseCase };

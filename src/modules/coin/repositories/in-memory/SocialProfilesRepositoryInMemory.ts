@@ -2,7 +2,7 @@ import { ICreateSocialProfileDTO } from "@modules/coin/dtos/ICreateSocialProfile
 import { SocialProfile } from "@modules/coin/typeorm/entities/SocialProfile";
 import { ISocialProfileRepository } from "../ISocialProfileRepository";
 
-class SocialProfilesRepositoryInMemory implements ISocialProfileRepository {
+export class SocialProfilesRepositoryInMemory implements ISocialProfileRepository {
     socialProfiles: SocialProfile[] = [];
 
     async create({
@@ -29,5 +29,3 @@ class SocialProfilesRepositoryInMemory implements ISocialProfileRepository {
         return socialProfile;
     }
 }
-
-export { SocialProfilesRepositoryInMemory };

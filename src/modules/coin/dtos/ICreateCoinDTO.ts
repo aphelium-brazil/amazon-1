@@ -1,4 +1,4 @@
-interface ICreateCoinDTO {
+export interface ICreateCoinDTO {
     name: string;
 
     isFiat: boolean;
@@ -33,5 +33,3 @@ interface ICreateCoinDTO {
     categoryName: string;
     categoryDescription: string;
 }
-
-export { ICreateCoinDTO };

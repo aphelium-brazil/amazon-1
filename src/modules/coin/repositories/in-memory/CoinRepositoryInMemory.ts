@@ -2,7 +2,7 @@ import { ICreateCoinDTO } from "@modules/coin/dtos/ICreateCoinDTO";
 import { Coin } from "@modules/coin/typeorm/entities/Coin";
 import { ICoinsRepository } from "../ICoinRepository";
 
-class CoinRepositoryInMemory implements ICoinsRepository {
+export class CoinRepositoryInMemory implements ICoinsRepository {
     coins: Coin[] = [];
 
     async all(): Promise<Coin[]> {
@@ -81,5 +81,3 @@ class CoinRepositoryInMemory implements ICoinsRepository {
         return coin;
     }
 }
-
-export { CoinRepositoryInMemory };

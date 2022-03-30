@@ -3,7 +3,7 @@ import { IBrokerRepository } from "@modules/brokers/repositories/IBrokerReposito
 import { getRepository, Repository } from "typeorm";
 import { Broker } from "../entities/Broker";
 
-class BrokersRepository implements IBrokerRepository {
+export class BrokersRepository implements IBrokerRepository {
     private repository: Repository<Broker>;
 
     constructor() {
@@ -43,5 +43,3 @@ class BrokersRepository implements IBrokerRepository {
         return broker;
     }
 }
-
-export { BrokersRepository };

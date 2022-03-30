@@ -12,7 +12,7 @@ interface IRequest {
 }
 
 @injectable()
-class CreateBrokerUseCase {
+export class CreateBrokerUseCase {
     constructor(
         @inject("BrokersRepository")
         private brokerRepository: IBrokerRepository
@@ -43,5 +43,3 @@ class CreateBrokerUseCase {
         return broker;
     }
 }
-
-export { CreateBrokerUseCase };

@@ -6,7 +6,7 @@ import { resolve } from "path";
 
 import { IStorageProvider } from "../IStorageProvider";
 
-class S3StorageProvider implements IStorageProvider {
+export class S3StorageProvider implements IStorageProvider {
     private client: S3;
 
     constructor() {
@@ -47,4 +47,3 @@ class S3StorageProvider implements IStorageProvider {
     }
 }
 
-export { S3StorageProvider };

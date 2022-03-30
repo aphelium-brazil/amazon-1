@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { container } from "tsyringe";
 
 import { CreateCoinUseCase } from "./CreateCoinUseCase";
-
+export 
 class CreateCoinController {
     async handle(request: Request, response: Response): Promise<Response> {
         const {
@@ -66,5 +66,3 @@ class CreateCoinController {
         return response.status(201).send();
     }
 }
-
-export { CreateCoinController };

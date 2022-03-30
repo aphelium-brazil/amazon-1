@@ -8,7 +8,7 @@ import {
 import { v4 as uuidV4 } from "uuid";
 
 @Entity("socialProfiles")
-class SocialProfile {
+export class SocialProfile {
     @PrimaryColumn()
     id: string;
     @Column()
@@ -34,5 +34,3 @@ class SocialProfile {
         }
     }
 }
-
-export { SocialProfile };

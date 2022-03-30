@@ -6,7 +6,7 @@ import { Swap } from "@modules/swap/typeorm/entities/Swap";
 import { inject, injectable } from "tsyringe";
 
 @injectable()
-class SwapCoinsUseCase {
+export class SwapCoinsUseCase {
     constructor(
         @inject("SwapsRepository")
         private swapsRepository: ISwapsRepository,
@@ -34,5 +34,3 @@ class SwapCoinsUseCase {
         return swapExists[0];
     }
 }
-
-export { SwapCoinsUseCase };
