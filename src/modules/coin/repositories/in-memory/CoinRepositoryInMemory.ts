@@ -1,5 +1,6 @@
 import { ICreateCoinDTO } from "@modules/coin/dtos/ICreateCoinDTO";
 import { Coin } from "@modules/coin/typeorm/entities/Coin";
+
 import { ICoinsRepository } from "../ICoinRepository";
 
 export class CoinRepositoryInMemory implements ICoinsRepository {
@@ -29,22 +30,6 @@ export class CoinRepositoryInMemory implements ICoinsRepository {
         isActive,
         firstHistoricalData,
         lastHistoricalData,
-        platformName,
-        platformDescription,
-        platformTokenAddress,
-        websiteName,
-        websiteDescription,
-        websiteUrl,
-        sourceCodeName,
-        sourceCodeUrl,
-        techDocName,
-        techDocDescription,
-        techDocFile,
-        techDocUrl,
-        techDocCreatedAt,
-        techDocUpdatedAt,
-        categoryName,
-        categoryDescription,
     }: ICreateCoinDTO): Promise<Coin> {
         const coin = new Coin();
 
@@ -58,22 +43,6 @@ export class CoinRepositoryInMemory implements ICoinsRepository {
             isActive,
             firstHistoricalData,
             lastHistoricalData,
-            platformName,
-            platformDescription,
-            platformTokenAddress,
-            websiteName,
-            websiteDescription,
-            websiteUrl,
-            sourceCodeName,
-            sourceCodeUrl,
-            techDocName,
-            techDocDescription,
-            techDocFile,
-            techDocUrl,
-            techDocCreatedAt,
-            techDocUpdatedAt,
-            categoryName,
-            categoryDescription,
         });
 
         this.coins.push(coin);

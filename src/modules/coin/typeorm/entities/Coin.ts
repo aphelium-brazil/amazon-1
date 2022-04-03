@@ -33,40 +33,6 @@ export class Coin {
     firstHistoricalData: string;
     @Column()
     lastHistoricalData: string;
-    @Column()
-    platformName: string;
-    @Column()
-    platformDescription: string;
-    @Column()
-    platformSymbol: string;
-    @Column()
-    platformTokenAddress: string;
-    @Column()
-    websiteName: string;
-    @Column()
-    websiteDescription: string;
-    @Column()
-    websiteUrl: string;
-    @Column()
-    sourceCodeName: string;
-    @Column()
-    sourceCodeUrl: string;
-    @Column()
-    techDocName: string;
-    @Column()
-    techDocDescription: string;
-    @Column()
-    techDocFile: string;
-    @Column()
-    techDocUrl: string;
-    @Column()
-    techDocCreatedAt: Date;
-    @Column()
-    techDocUpdatedAt: Date;
-    @Column()
-    categoryName: string;
-    @Column()
-    categoryDescription: string;
 
     @CreateDateColumn()
     createdAt: Date;

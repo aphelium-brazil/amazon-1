@@ -34,6 +34,7 @@ export class fiats1647898096308 implements MigrationInterface {
                     {
                         name: "symbol",
                         type: "varchar",
+                        isNullable: false,
                     },
                     {
                         name: "isActive",
@@ -48,95 +49,11 @@ export class fiats1647898096308 implements MigrationInterface {
                     {
                         name: "firstHistoricalData",
                         type: "timestamp",
+                        isNullable: true,
                     },
                     {
                         name: "lastHistoricalData",
                         type: "timestamp",
-                        isNullable: true,
-                    },
-                    {
-                        name: "platformName",
-                        type: "varchar",
-                        isNullable: true,
-                    },
-                    {
-                        name: "platformDescription",
-                        type: "varchar",
-                        isNullable: true,
-                    },
-                    {
-                        name: "platformSymbol",
-                        type: "varchar",
-                        isNullable: true,
-                    },
-                    {
-                        name: "platformTokenAddress",
-                        type: "varchar",
-                        isNullable: true,
-                    },
-                    {
-                        name: "websiteName",
-                        type: "varchar",
-                        isNullable: true,
-                    },
-                    {
-                        name: "websiteDescription",
-                        type: "varchar",
-                        isNullable: true,
-                    },
-                    {
-                        name: "websiteUrl",
-                        type: "varchar",
-                        isNullable: true,
-                    },
-                    {
-                        name: "sourceCodeName",
-                        type: "varchar",
-                        isNullable: true,
-                    },
-                    {
-                        name: "sourceCodeUrl",
-                        type: "varchar",
-                        isNullable: true,
-                    },
-                    {
-                        name: "techDocName",
-                        type: "varchar",
-                        isNullable: true,
-                    },
-                    {
-                        name: "techDocDescription",
-                        type: "varchar",
-                        isNullable: true,
-                    },
-                    {
-                        name: "techDocFile",
-                        type: "varchar",
-                        isNullable: true,
-                    },
-                    {
-                        name: "techDocUrl",
-                        type: "varchar",
-                        isNullable: true,
-                    },
-                    {
-                        name: "techDocCreatedAt",
-                        type: "timestamp",
-                        isNullable: true,
-                    },
-                    {
-                        name: "techDocUpdatedAt",
-                        type: "timestamp",
-                        isNullable: true,
-                    },
-                    {
-                        name: "categoryName",
-                        type: "varchar",
-                        isNullable: true,
-                    },
-                    {
-                        name: "categoryDescription",
-                        type: "varchar",
                         isNullable: true,
                     },
                     {
