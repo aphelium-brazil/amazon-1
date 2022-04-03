@@ -4,8 +4,8 @@ import { Broker } from "@modules/brokers/typeorm/entities/Broker";
 import { ISwapsRepository } from "@modules/swap/repositories/ISwapsRepository";
 import { inject, injectable } from "tsyringe";
 
-@injectable() export 
-class SwapAvailableInBrokerUseCase {
+@injectable()
+export class SwapAvailableInBrokerUseCase {
     constructor(
         @inject("SwapsRepository")
         private swapsRepository: ISwapsRepository,
@@ -17,8 +17,8 @@ class SwapAvailableInBrokerUseCase {
         brokerId,
         swaps,
     }: ISwapAvailableInBrokerDTO): Promise<Broker> {
-        //TODO: Apenas aceitar swaps que estejam associados a outras moedas
-        //TODO: Apenas aceitar swaps que estejam ativos
+        // TODO: Apenas aceitar swaps que estejam associados a outras moedas
+        // TODO: Apenas aceitar swaps que estejam ativos
 
         const brokerExists = await this.brokersReposity.findById(brokerId);
         const swapsExists = await this.swapsRepository.findByIds(swaps);

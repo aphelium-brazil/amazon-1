@@ -6,4 +6,3 @@ export interface ICreateSocialProfileDTO {
     socialNetwork: string;
     official: boolean;
 }
-

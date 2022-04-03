@@ -1,4 +1,5 @@
 import { SwapsRepositoryInMemory } from "@modules/swap/repositories/in-memory/SwapsRepositoryInMemory";
+
 import { CreateSwapUseCase } from "./CreateSwapUseCase";
 
 let createSwapUseCase: CreateSwapUseCase;

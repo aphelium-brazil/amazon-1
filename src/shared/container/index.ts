@@ -10,7 +10,6 @@ import { IKlineRepository } from "@modules/kline/repositories/IKlineRepository";
 import { KlineRepository } from "@modules/kline/repositories/repositories/KlineRepository";
 import { ISwapsRepository } from "@modules/swap/repositories/ISwapsRepository";
 import { SwapsRepository } from "@modules/swap/typeorm/repositories/SwapsRepository";
-import "@shared/container/providers";
 import { container } from "tsyringe";
 
 container.registerSingleton<IBrokerRepository>(

@@ -1,4 +1,5 @@
 import { SocialProfilesRepositoryInMemory } from "@modules/coin/repositories/in-memory/SocialProfilesRepositoryInMemory";
+
 import { CreateSocialProfileUseCase } from "./CreateSocialProfileUseCase";
 
 let createSocialProfileUseCase: CreateSocialProfileUseCase;

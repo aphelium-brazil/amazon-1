@@ -1,6 +1,8 @@
 import { BrokerRepositoryInMemory } from "@modules/brokers/repositories/in-memory/BrokerRepositoryInMemory";
-import { AppError } from "@shared/errors/AppError";
 import { create } from "domain";
+
+import { AppError } from "@shared/errors/AppError";
+
 import { CreateBrokerUseCase } from "./CreateBrokerUseCase";
 
 describe("Create broker", () => {

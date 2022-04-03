@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
+
 import { CreateBrokerUseCase } from "./CreateBrokerUseCase";
 
 export class CreateBrokerController {

@@ -1,6 +1,7 @@
 import { BrokerRepositoryInMemory } from "@modules/brokers/repositories/in-memory/BrokerRepositoryInMemory";
 import { SwapsRepositoryInMemory } from "@modules/swap/repositories/in-memory/SwapsRepositoryInMemory";
 import { CreateSwapUseCase } from "@modules/swap/useCases/createSwapUseCase/CreateSwapUseCase";
+
 import { CreateBrokerUseCase } from "../createBroker/CreateBrokerUseCase";
 import { SwapAvailableInBrokerUseCase } from "./SwapAvailableInBrokerUseCase";
 

@@ -3,8 +3,8 @@ import { IExplorerRepository } from "@modules/coin/repositories/IExplorerReposit
 import { Explorer } from "@modules/coin/typeorm/entities/Explorer";
 import { inject, injectable } from "tsyringe";
 
-@injectable() export 
-class CreateExplorerUseCase {
+@injectable()
+export class CreateExplorerUseCase {
     constructor(
         @inject("ExplorerRepository")
         private explorer: IExplorerRepository

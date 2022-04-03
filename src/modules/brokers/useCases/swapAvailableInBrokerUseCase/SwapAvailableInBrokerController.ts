@@ -1,8 +1,9 @@
 import { Response, Request } from "express";
 import { container } from "tsyringe";
+
 import { SwapAvailableInBrokerUseCase } from "./SwapAvailableInBrokerUseCase";
-export 
-class SwapAvailableInBrokerController {
+
+export class SwapAvailableInBrokerController {
     async handle(request: Request, response: Response): Promise<Response> {
         const { id } = request.params;
         const { swaps } = request.body;
@@ -19,4 +20,3 @@ class SwapAvailableInBrokerController {
         return response.json(swap);
     }
 }
-

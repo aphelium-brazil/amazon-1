@@ -1,6 +1,7 @@
 import { ICreateBrokerDTO } from "@modules/brokers/dtos/ICreateBrokerDTO";
 import { IBrokerRepository } from "@modules/brokers/repositories/IBrokerRepository";
 import { getRepository, Repository } from "typeorm";
+
 import { Broker } from "../entities/Broker";
 
 export class BrokersRepository implements IBrokerRepository {

@@ -10,4 +10,3 @@ const swapAvailableInBrokerController = new SwapAvailableInBrokerController();
 
 brokersRoutes.post("/", createBrokerController.handle);
 brokersRoutes.post("/swaps/:id", swapAvailableInBrokerController.handle);
-
