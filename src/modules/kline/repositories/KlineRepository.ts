@@ -2,7 +2,7 @@ import { ICreateKlineDTO } from "@modules/kline/dtos/ICreateKlineDTO";
 import { Kline } from "@modules/kline/entities/Kline";
 import { FindManyOptions, getRepository, Repository } from "typeorm";
 
-import { IKlineRepository } from "./IKlineRepository";
+import { IKlineRepository } from "@modules/kline/repositories/interfaces/IKlineRepository";
 
 export class KlineRepository implements IKlineRepository {
     private repository: Repository<Kline>;

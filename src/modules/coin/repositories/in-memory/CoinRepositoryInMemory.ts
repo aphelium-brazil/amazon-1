@@ -1,7 +1,7 @@
 import { ICreateCoinDTO } from "@modules/coin/dtos/ICreateCoinDTO";
 import { Coin } from "@modules/coin/entities/Coin";
 
-import { ICoinsRepository } from "../ICoinRepository";
+import { ICoinsRepository } from "../interfaces/ICoinRepository";
 
 export class CoinRepositoryInMemory implements ICoinsRepository {
     coins: Coin[] = [];
