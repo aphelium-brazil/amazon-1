@@ -1,5 +1,5 @@
 import { IBrokerRepository } from "@modules/brokers/repositories/IBrokerRepository";
-import { BrokersRepository } from "@modules/brokers/typeorm/repositories/BrokerRepository";
+import { BrokersRepository } from "@modules/brokers/repositories/BrokerRepository";
 import { ICoinsRepository } from "@modules/coin/repositories/ICoinRepository";
 import { IExplorerRepository } from "@modules/coin/repositories/IExplorerRepository";
 import { ISocialProfileRepository } from "@modules/coin/repositories/ISocialProfileRepository";
