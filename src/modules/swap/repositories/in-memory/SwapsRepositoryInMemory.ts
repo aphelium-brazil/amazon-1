@@ -1,7 +1,6 @@
 import { ICreateSwapDTO } from "@modules/swap/dtos/ICreateSwapDTO";
 import { Swap } from "@modules/swap/entities/Swap";
-
-import { ISwapsRepository } from "../ISwapsRepository";
+import { ISwapsRepository } from "../interfaces/ISwapsRepository";
 
 export class SwapsRepositoryInMemory implements ISwapsRepository {
     swaps: Swap[] = [];

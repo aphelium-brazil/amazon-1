@@ -1,7 +1,6 @@
 import { ICreateBrokerDTO } from "@modules/brokers/dtos/ICreateBrokerDTO";
 import { Broker } from "@modules/brokers/entities/Broker";
-
-import { IBrokerRepository } from "../IBrokerRepository";
+import { IBrokerRepository } from "../interfaces/IBrokerRepository";
 
 export class BrokerRepositoryInMemory implements IBrokerRepository {
     brokers: Broker[] = [];

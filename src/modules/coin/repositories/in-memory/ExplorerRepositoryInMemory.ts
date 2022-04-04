@@ -1,7 +1,6 @@
 import { ICreateExplorerDTO } from "@modules/coin/dtos/ICreateExplorerDTO";
 import { Explorer } from "@modules/coin/entities/Explorer";
-
-import { IExplorerRepository } from "../IExplorerRepository";
+import { IExplorerRepository } from "../interfaces/IExplorerRepository";
 
 export class ExplorerRepositoryInMemory implements IExplorerRepository {
     explorers: Explorer[] = [];

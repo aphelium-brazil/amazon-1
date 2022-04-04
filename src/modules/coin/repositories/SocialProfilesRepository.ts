@@ -1,5 +1,5 @@
 import { ICreateSocialProfileDTO } from "@modules/coin/dtos/ICreateSocialProfileDTO";
-import { ISocialProfileRepository } from "@modules/coin/repositories/ISocialProfileRepository";
+import { ISocialProfileRepository } from "@modules/coin/repositories/interfaces/ISocialProfileRepository";
 import { getRepository, Repository } from "typeorm";
 
 import { SocialProfile } from "../entities/SocialProfile";

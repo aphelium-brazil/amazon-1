@@ -1,4 +1,4 @@
-import { IBrokerRepository } from "@modules/brokers/repositories/IBrokerRepository";
+import { IBrokerRepository } from "@modules/brokers/repositories/interfaces/IBrokerRepository";
 import { Broker } from "@modules/brokers/entities/Broker";
 import { inject, injectable } from "tsyringe";
 

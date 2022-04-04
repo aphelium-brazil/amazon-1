@@ -1,5 +1,4 @@
 import { BrokerRepositoryInMemory } from "@modules/brokers/repositories/in-memory/BrokerRepositoryInMemory";
-import { create } from "domain";
 
 import { AppError } from "@shared/errors/AppError";
 

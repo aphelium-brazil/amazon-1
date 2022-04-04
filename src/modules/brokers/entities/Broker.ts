@@ -1,4 +1,3 @@
-import { Coin } from "@modules/coin/entities/Coin";
 import { Swap } from "@modules/swap/entities/Swap";
 import {
     Column,

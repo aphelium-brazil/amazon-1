@@ -1,8 +1,8 @@
-import { IBrokerRepository } from "@modules/brokers/repositories/IBrokerRepository";
+import { IBrokerRepository } from "@modules/brokers/repositories/interfaces/IBrokerRepository";
 import { ICreateKlineDTO } from "@modules/kline/dtos/ICreateKlineDTO";
-import { IKlineRepository } from "@modules/kline/repositories/IKlineRepository";
+import { IKlineRepository } from "@modules/kline/repositories/interfaces/IKlineRepository";
 import { Kline } from "@modules/kline/entities/Kline";
-import { ISwapsRepository } from "@modules/swap/repositories/ISwapsRepository";
+import { ISwapsRepository } from "@modules/swap/repositories/interfaces/ISwapsRepository";
 import { inject, injectable } from "tsyringe";
 
 import { AppError } from "@shared/errors/AppError";

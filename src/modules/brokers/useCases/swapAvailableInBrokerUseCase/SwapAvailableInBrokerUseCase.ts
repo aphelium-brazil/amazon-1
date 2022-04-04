@@ -1,7 +1,7 @@
 import { ISwapAvailableInBrokerDTO } from "@modules/brokers/dtos/ISwapAvailableInBrokerDTO";
-import { IBrokerRepository } from "@modules/brokers/repositories/IBrokerRepository";
+import { IBrokerRepository } from "@modules/brokers/repositories/interfaces/IBrokerRepository";
 import { Broker } from "@modules/brokers/entities/Broker";
-import { ISwapsRepository } from "@modules/swap/repositories/ISwapsRepository";
+import { ISwapsRepository } from "@modules/swap/repositories/interfaces/ISwapsRepository";
 import { inject, injectable } from "tsyringe";
 
 @injectable()

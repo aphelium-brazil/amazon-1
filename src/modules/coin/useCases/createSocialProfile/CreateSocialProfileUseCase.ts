@@ -1,5 +1,5 @@
 import { ICreateSocialProfileDTO } from "@modules/coin/dtos/ICreateSocialProfileDTO";
-import { ISocialProfileRepository } from "@modules/coin/repositories/ISocialProfileRepository";
+import { ISocialProfileRepository } from "@modules/coin/repositories/interfaces/ISocialProfileRepository";
 import { SocialProfile } from "@modules/coin/entities/SocialProfile";
 import { inject, injectable } from "tsyringe";
 

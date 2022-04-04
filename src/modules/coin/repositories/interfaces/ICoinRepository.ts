@@ -1,5 +1,5 @@
-import { ICreateCoinDTO } from "../../dtos/ICreateCoinDTO";
-import { Coin } from "../../entities/Coin";
+import { ICreateCoinDTO } from "@modules/coin/dtos/ICreateCoinDTO";
+import { Coin } from "@modules/coin/entities/Coin";
 
 export interface ICoinsRepository {
     create(data: ICreateCoinDTO): Promise<Coin>;
