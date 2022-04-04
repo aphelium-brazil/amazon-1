@@ -3,8 +3,8 @@ import { ISocialProfileRepository } from "@modules/coin/repositories/ISocialProf
 import { SocialProfile } from "@modules/coin/typeorm/entities/SocialProfile";
 import { inject, injectable } from "tsyringe";
 
-@injectable() export 
-class CreateSocialProfileUseCase {
+@injectable()
+export class CreateSocialProfileUseCase {
     constructor(
         @inject("SocialProfileRepository")
         private socialProfile: ISocialProfileRepository
@@ -30,4 +30,3 @@ class CreateSocialProfileUseCase {
         return socialProfile;
     }
 }
-

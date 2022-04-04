@@ -1,5 +1,6 @@
 import { Response, Request } from "express";
 import { container } from "tsyringe";
+
 import { SwapCoinsUseCase } from "./SwapCoinsUseCase";
 
 export class SwapCoinsController {
@@ -18,4 +19,3 @@ export class SwapCoinsController {
         return response.json(swap);
     }
 }
-

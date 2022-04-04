@@ -46,4 +46,3 @@ export class S3StorageProvider implements IStorageProvider {
             .promise();
     }
 }
-

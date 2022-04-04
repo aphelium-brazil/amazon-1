@@ -14,4 +14,3 @@ export class CreateSwapUseCase {
         return swap;
     }
 }
-

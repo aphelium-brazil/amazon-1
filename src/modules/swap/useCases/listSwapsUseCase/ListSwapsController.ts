@@ -1,5 +1,6 @@
 import { Response, Request } from "express";
 import { container } from "tsyringe";
+
 import { ListSwapsUseCase } from "./ListSwapsUseCase";
 
 export class ListSwapsController {
@@ -11,4 +12,3 @@ export class ListSwapsController {
         return response.json(swaps);
     }
 }
-

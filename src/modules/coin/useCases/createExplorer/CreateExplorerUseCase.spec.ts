@@ -1,4 +1,5 @@
 import { ExplorerRepositoryInMemory } from "@modules/coin/repositories/in-memory/ExplorerRepositoryInMemory";
+
 import { CreateExplorerUseCase } from "./CreateExplorerUseCase";
 
 let createExplorerUseCase: CreateExplorerUseCase;

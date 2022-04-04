@@ -1,6 +1,6 @@
 import { Swap } from "@modules/swap/typeorm/entities/Swap";
 
- export interface ICreateBrokerDTO {
+export interface ICreateBrokerDTO {
     id?: string;
     name: string;
     description: string;

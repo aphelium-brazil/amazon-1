@@ -1,5 +1,6 @@
 import { ICreateBrokerDTO } from "@modules/brokers/dtos/ICreateBrokerDTO";
 import { Broker } from "@modules/brokers/typeorm/entities/Broker";
+
 import { IBrokerRepository } from "../IBrokerRepository";
 
 export class BrokerRepositoryInMemory implements IBrokerRepository {
@@ -35,4 +36,3 @@ export class BrokerRepositoryInMemory implements IBrokerRepository {
         return broker;
     }
 }
-

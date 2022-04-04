@@ -3,23 +3,23 @@ version: "3.9"
 services:
   database: 
     image: postgres
-    container_name: database_currencies
+    container_name: amazon-1
     restart: always
     ports: 
       - 5432:5432
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=docker
-      - POSTGRES_DB=currencies
+      - POSTGRES_DB=core
     volumes:
       - pgdata:/data/postgres
 
-#   redis:
-#     image: redis:alpine
-#     container_name: cache_currencies
-#     restart: always
-#     ports: 
-#       - 6379:6379
+  redis:
+    image: redis:alpine
+    container_name: cache
+    restart: always
+    ports: 
+      - 6379:6379
 
   # app:
   #   build: .

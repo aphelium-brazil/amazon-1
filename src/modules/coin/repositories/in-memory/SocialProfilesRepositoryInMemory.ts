@@ -1,8 +1,11 @@
 import { ICreateSocialProfileDTO } from "@modules/coin/dtos/ICreateSocialProfileDTO";
 import { SocialProfile } from "@modules/coin/typeorm/entities/SocialProfile";
+
 import { ISocialProfileRepository } from "../ISocialProfileRepository";
 
-export class SocialProfilesRepositoryInMemory implements ISocialProfileRepository {
+export class SocialProfilesRepositoryInMemory
+    implements ISocialProfileRepository
+{
     socialProfiles: SocialProfile[] = [];
 
     async create({

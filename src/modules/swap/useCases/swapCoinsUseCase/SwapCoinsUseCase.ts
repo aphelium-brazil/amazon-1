@@ -14,7 +14,6 @@ export class SwapCoinsUseCase {
         private coinsRepository: ICoinsRepository
     ) {}
 
-
     private coins: Coin[] = [];
 
     async execute({

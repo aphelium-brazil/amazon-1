@@ -1,5 +1,6 @@
-import { SwapsRepositoryInMemory } from "@modules/swap/repositories/in-memory/SwapsRepositoryInMemory";
 import { CoinRepositoryInMemory } from "@modules/coin/repositories/in-memory/CoinRepositoryInMemory";
+import { SwapsRepositoryInMemory } from "@modules/swap/repositories/in-memory/SwapsRepositoryInMemory";
+
 import { SwapCoinsUseCase } from "./SwapCoinsUseCase";
 
 let swapCoinsUseCase: SwapCoinsUseCase;
@@ -25,73 +26,28 @@ describe("create swap between two cryptos", () => {
         const bitcoin = await coinsRepositoryInMemory.create({
             name: "string",
             isFiat: false,
-            country: "BR",
             description: "string",
             logo: "string",
             symbol: "string",
             isActive: true,
             firstHistoricalData: "string",
             lastHistoricalData: "string",
-
-            platformName: "string",
-            platformDescription: "string",
-            platformTokenAddress: "string",
-
-            websiteName: "string",
-            websiteDescription: "string",
-            websiteUrl: "string",
-
-            sourceCodeName: "string",
-            sourceCodeUrl: "string",
-
-            techDocName: "string",
-            techDocDescription: "string",
-            techDocFile: "string",
-            techDocUrl: "string",
-            techDocCreatedAt: new Date(1647966991),
-            techDocUpdatedAt: new Date(1647966991),
-
-            categoryName: "string",
-            categoryDescription: "string",
         });
 
-        const doge = await coinsRepositoryInMemory.create({
+        const brl = await coinsRepositoryInMemory.create({
             name: "string",
-            isFiat: false,
+            isFiat: true,
             country: "BR",
             description: "string",
             logo: "string",
             symbol: "string",
             isActive: true,
-            firstHistoricalData: "string",
-            lastHistoricalData: "string",
-
-            platformName: "string",
-            platformDescription: "string",
-            platformTokenAddress: "string",
-
-            websiteName: "string",
-            websiteDescription: "string",
-            websiteUrl: "string",
-
-            sourceCodeName: "string",
-            sourceCodeUrl: "string",
-
-            techDocName: "string",
-            techDocDescription: "string",
-            techDocFile: "string",
-            techDocUrl: "string",
-            techDocCreatedAt: new Date(1647966991),
-            techDocUpdatedAt: new Date(1647966991),
-
-            categoryName: "string",
-            categoryDescription: "string",
         });
 
         const swapCryptos = await swapCoinsUseCase.execute({
             swapId: swap.id,
             fromId: bitcoin.id,
-            toId: doge.id,
+            toId: brl.id,
         });
 
         expect(swap).toHaveProperty("coins");

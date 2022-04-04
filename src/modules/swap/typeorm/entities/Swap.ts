@@ -1,5 +1,4 @@
-import { v4 as uuidV4 } from "uuid";
-
+import { Coin } from "@modules/coin/typeorm/entities/Coin";
 import {
     Column,
     CreateDateColumn,
@@ -9,7 +8,8 @@ import {
     PrimaryColumn,
     UpdateDateColumn,
 } from "typeorm";
-import { Coin } from "@modules/coin/typeorm/entities/Coin";
+import { v4 as uuidV4 } from "uuid";
+
 @Entity("swaps")
 export class Swap {
     @PrimaryColumn()
@@ -47,4 +47,3 @@ export class Swap {
         }
     }
 }
-

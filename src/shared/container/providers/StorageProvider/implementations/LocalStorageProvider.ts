@@ -25,4 +25,3 @@ export class LocalStorageProvider implements IStorageProvider {
         await fs.promises.unlink(filename);
     }
 }
-

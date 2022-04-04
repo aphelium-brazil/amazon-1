@@ -14,4 +14,3 @@ export class ListSwapsUseCase {
         return swaps;
     }
 }
-

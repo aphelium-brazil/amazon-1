@@ -25,7 +25,6 @@ export class swaps1648148185134 implements MigrationInterface {
                         name: "isActive",
                         type: "boolean",
                         default: false,
-
                     },
                     {
                         name: "createdAt",

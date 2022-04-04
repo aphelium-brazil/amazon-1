@@ -2,8 +2,8 @@ import { Request, Response } from "express";
 import { container } from "tsyringe";
 
 import { CreateCoinUseCase } from "./CreateCoinUseCase";
-export 
-class CreateCoinController {
+
+export class CreateCoinController {
     async handle(request: Request, response: Response): Promise<Response> {
         const {
             name,
@@ -15,22 +15,6 @@ class CreateCoinController {
             isActive,
             firstHistoricalData,
             lastHistoricalData,
-            platformName,
-            platformDescription,
-            platformTokenAddress,
-            websiteName,
-            websiteDescription,
-            websiteUrl,
-            sourceCodeName,
-            sourceCodeUrl,
-            techDocName,
-            techDocDescription,
-            techDocFile,
-            techDocUrl,
-            techDocCreatedAt,
-            techDocUpdatedAt,
-            categoryName,
-            categoryDescription,
         } = request.body;
 
         const createCoinUseCase = container.resolve(CreateCoinUseCase);
@@ -45,22 +29,6 @@ class CreateCoinController {
             isActive,
             firstHistoricalData,
             lastHistoricalData,
-            platformName,
-            platformDescription,
-            platformTokenAddress,
-            websiteName,
-            websiteDescription,
-            websiteUrl,
-            sourceCodeName,
-            sourceCodeUrl,
-            techDocName,
-            techDocDescription,
-            techDocFile,
-            techDocUrl,
-            techDocCreatedAt,
-            techDocUpdatedAt,
-            categoryName,
-            categoryDescription,
         });
 
         return response.status(201).send();

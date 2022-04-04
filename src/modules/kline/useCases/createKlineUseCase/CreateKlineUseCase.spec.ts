@@ -4,6 +4,7 @@ import { IntervalEnums } from "@modules/kline/enums/IntervalEnums";
 import { KlineRepositoryInMemory } from "@modules/kline/repositories/in-memory/KlineRepositoryInMemory";
 import { SwapsRepositoryInMemory } from "@modules/swap/repositories/in-memory/SwapsRepositoryInMemory";
 import { CreateSwapUseCase } from "@modules/swap/useCases/createSwapUseCase/CreateSwapUseCase";
+
 import { CreateKlineUseCase } from "./CreateKlineUseCase";
 
 describe("Create Kline", () => {

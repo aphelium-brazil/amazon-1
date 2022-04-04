@@ -1,5 +1,6 @@
 import { ICreateSwapDTO } from "@modules/swap/dtos/ICreateSwapDTO";
 import { Swap } from "@modules/swap/typeorm/entities/Swap";
+
 import { ISwapsRepository } from "../ISwapsRepository";
 
 export class SwapsRepositoryInMemory implements ISwapsRepository {
@@ -20,4 +21,3 @@ export class SwapsRepositoryInMemory implements ISwapsRepository {
         return swap;
     }
 }
-
