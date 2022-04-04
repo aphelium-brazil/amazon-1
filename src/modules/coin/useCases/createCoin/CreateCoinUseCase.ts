@@ -1,5 +1,5 @@
 import { ICreateCoinDTO } from "@modules/coin/dtos/ICreateCoinDTO";
-import { ICoinsRepository } from "@modules/coin/repositories/ICoinRepository";
+import { ICoinsRepository } from "@modules/coin/repositories/interfaces/ICoinRepository";
 import { Coin } from "@modules/coin/entities/Coin";
 import { inject, injectable } from "tsyringe";
 
