@@ -1,5 +1,5 @@
 import { ICreateKlineDTO } from "../dtos/ICreateKlineDTO";
-import { Kline } from "../typeorm/entities/Kline";
+import { Kline } from "../entities/Kline";
 
 export interface IKlineRepository {
     create(data: ICreateKlineDTO): Promise<Kline>;

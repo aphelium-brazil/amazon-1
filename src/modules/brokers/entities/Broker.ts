@@ -1,5 +1,5 @@
-import { Coin } from "@modules/coin/typeorm/entities/Coin";
-import { Swap } from "@modules/swap/typeorm/entities/Swap";
+import { Coin } from "@modules/coin/entities/Coin";
+import { Swap } from "@modules/swap/entities/Swap";
 import {
     Column,
     CreateDateColumn,

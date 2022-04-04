@@ -1,7 +1,7 @@
 import { IBrokerRepository } from "@modules/brokers/repositories/IBrokerRepository";
 import { ICreateKlineDTO } from "@modules/kline/dtos/ICreateKlineDTO";
 import { IKlineRepository } from "@modules/kline/repositories/IKlineRepository";
-import { Kline } from "@modules/kline/typeorm/entities/Kline";
+import { Kline } from "@modules/kline/entities/Kline";
 import { ISwapsRepository } from "@modules/swap/repositories/ISwapsRepository";
 import { inject, injectable } from "tsyringe";
 

@@ -3,13 +3,13 @@ import { BrokersRepository } from "@modules/brokers/typeorm/repositories/BrokerR
 import { ICoinsRepository } from "@modules/coin/repositories/ICoinRepository";
 import { IExplorerRepository } from "@modules/coin/repositories/IExplorerRepository";
 import { ISocialProfileRepository } from "@modules/coin/repositories/ISocialProfileRepository";
-import { CoinsRepository } from "@modules/coin/typeorm/repositories/CoinsRepository";
-import { ExplorerRepository } from "@modules/coin/typeorm/repositories/ExplorerRepository";
-import { SocialProfilesRepository } from "@modules/coin/typeorm/repositories/SocialProfilesRepository";
+import { CoinsRepository } from "@modules/coin/repositories/CoinsRepository";
+import { ExplorerRepository } from "@modules/coin/repositories/ExplorerRepository";
+import { SocialProfilesRepository } from "@modules/coin/repositories/SocialProfilesRepository";
 import { IKlineRepository } from "@modules/kline/repositories/IKlineRepository";
-import { KlineRepository } from "@modules/kline/repositories/repositories/KlineRepository";
+import { KlineRepository } from "@modules/kline/repositories/KlineRepository";
 import { ISwapsRepository } from "@modules/swap/repositories/ISwapsRepository";
-import { SwapsRepository } from "@modules/swap/typeorm/repositories/SwapsRepository";
+import { SwapsRepository } from "@modules/swap/repositories/SwapsRepository";
 import { container } from "tsyringe";
 
 container.registerSingleton<IBrokerRepository>(

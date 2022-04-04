@@ -1,5 +1,5 @@
 import { ICreateCoinDTO } from "@modules/coin/dtos/ICreateCoinDTO";
-import { Coin } from "@modules/coin/typeorm/entities/Coin";
+import { Coin } from "@modules/coin/entities/Coin";
 
 import { ICoinsRepository } from "../ICoinRepository";
 

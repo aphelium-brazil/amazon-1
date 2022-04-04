@@ -1,5 +1,5 @@
 import { ICreateSwapDTO } from "@modules/swap/dtos/ICreateSwapDTO";
-import { Swap } from "@modules/swap/typeorm/entities/Swap";
+import { Swap } from "@modules/swap/entities/Swap";
 
 import { ISwapsRepository } from "../ISwapsRepository";
 

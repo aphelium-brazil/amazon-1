@@ -1,5 +1,5 @@
 import { ICreateBrokerDTO } from "../dtos/ICreateBrokerDTO";
-import { Broker } from "../typeorm/entities/Broker";
+import { Broker } from "../entities/Broker";
 
 export interface IBrokerRepository {
     create(data: ICreateBrokerDTO): Promise<Broker>;

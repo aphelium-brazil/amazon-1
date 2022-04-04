@@ -1,5 +1,5 @@
 import { ICreateBrokerDTO } from "@modules/brokers/dtos/ICreateBrokerDTO";
-import { Broker } from "@modules/brokers/typeorm/entities/Broker";
+import { Broker } from "@modules/brokers/entities/Broker";
 
 import { IBrokerRepository } from "../IBrokerRepository";
 

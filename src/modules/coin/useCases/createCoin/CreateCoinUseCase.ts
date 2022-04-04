@@ -1,6 +1,6 @@
 import { ICreateCoinDTO } from "@modules/coin/dtos/ICreateCoinDTO";
 import { ICoinsRepository } from "@modules/coin/repositories/ICoinRepository";
-import { Coin } from "@modules/coin/typeorm/entities/Coin";
+import { Coin } from "@modules/coin/entities/Coin";
 import { inject, injectable } from "tsyringe";
 
 import { AppError } from "@shared/errors/AppError";

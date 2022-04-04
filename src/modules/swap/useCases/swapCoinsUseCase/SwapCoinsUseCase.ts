@@ -1,8 +1,8 @@
 import { ICoinsRepository } from "@modules/coin/repositories/ICoinRepository";
-import { Coin } from "@modules/coin/typeorm/entities/Coin";
+import { Coin } from "@modules/coin/entities/Coin";
 import { ICreateSwapRelationDTO } from "@modules/swap/dtos/ICreateSwapRelationDTO";
 import { ISwapsRepository } from "@modules/swap/repositories/ISwapsRepository";
-import { Swap } from "@modules/swap/typeorm/entities/Swap";
+import { Swap } from "@modules/swap/entities/Swap";
 import { inject, injectable } from "tsyringe";
 
 @injectable()

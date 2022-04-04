@@ -1,4 +1,4 @@
-import { Swap } from "@modules/swap/typeorm/entities/Swap";
+import { Swap } from "@modules/swap/entities/Swap";
 
 export interface ISwapAvailableInBrokerDTO {
     brokerId: string;

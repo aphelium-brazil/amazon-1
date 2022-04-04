@@ -1,5 +1,5 @@
 import { ICreateCoinDTO } from "../dtos/ICreateCoinDTO";
-import { Coin } from "../typeorm/entities/Coin";
+import { Coin } from "../entities/Coin";
 
 export interface ICoinsRepository {
     create(data: ICreateCoinDTO): Promise<Coin>;

@@ -1,5 +1,5 @@
 import { IBrokerRepository } from "@modules/brokers/repositories/IBrokerRepository";
-import { Broker } from "@modules/brokers/typeorm/entities/Broker";
+import { Broker } from "@modules/brokers/entities/Broker";
 import { inject, injectable } from "tsyringe";
 
 import { AppError } from "@shared/errors/AppError";

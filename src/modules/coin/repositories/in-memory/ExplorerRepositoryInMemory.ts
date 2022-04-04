@@ -1,5 +1,5 @@
 import { ICreateExplorerDTO } from "@modules/coin/dtos/ICreateExplorerDTO";
-import { Explorer } from "@modules/coin/typeorm/entities/Explorer";
+import { Explorer } from "@modules/coin/entities/Explorer";
 
 import { IExplorerRepository } from "../IExplorerRepository";
 
