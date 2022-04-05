@@ -5,7 +5,7 @@ import { CreateExplorerUseCase } from "./CreateExplorerUseCase";
 let createExplorerUseCase: CreateExplorerUseCase;
 let explorerRepositoryInMemory: ExplorerRepositoryInMemory;
 
-describe("Create a cryptocurrency explorer", () => {
+describe("Coin", () => {
     beforeEach(() => {
         explorerRepositoryInMemory = new ExplorerRepositoryInMemory();
         createExplorerUseCase = new CreateExplorerUseCase(

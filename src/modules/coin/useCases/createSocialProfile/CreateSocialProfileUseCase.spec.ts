@@ -5,7 +5,7 @@ import { CreateSocialProfileUseCase } from "./CreateSocialProfileUseCase";
 let createSocialProfileUseCase: CreateSocialProfileUseCase;
 let socialProfilesRepositoryInMemory: SocialProfilesRepositoryInMemory;
 
-describe("Create a cryptocurrency social profile", () => {
+describe("Coin", () => {
     beforeEach(() => {
         socialProfilesRepositoryInMemory =
             new SocialProfilesRepositoryInMemory();

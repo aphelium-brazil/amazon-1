@@ -1,4 +1,5 @@
 import { ICreateCoinDTO } from "@modules/coin/dtos/ICreateCoinDTO";
+import { IUpdateCoinDTO } from "@modules/coin/dtos/IUpdateCoinDTO";
 import { Coin } from "@modules/coin/entities/Coin";
 
 import { ICoinsRepository } from "../interfaces/ICoinRepository";
@@ -48,5 +49,46 @@ export class CoinRepositoryInMemory implements ICoinsRepository {
         this.coins.push(coin);
 
         return coin;
+    }
+
+    async update({
+        id,
+        name,
+        isFiat,
+        country,
+        description,
+        logo,
+        symbol,
+        isActive,
+        firstHistoricalData,
+        lastHistoricalData,
+    }: IUpdateCoinDTO): Promise<Coin> {
+        const coinExists = this.coins.find((coin) => coin.id === id);
+
+        const updatedCoin = new Coin();
+
+        Object.assign(updatedCoin, {
+            id,
+            name: name || coinExists.name,
+            isFiat: isFiat || coinExists.isFiat,
+            country: country || coinExists.country,
+            description: description || coinExists.description,
+            logo: logo || coinExists.logo,
+            symbol: symbol || coinExists.symbol,
+            isActive: isActive || coinExists.isActive,
+            firstHistoricalData:
+                firstHistoricalData || coinExists.firstHistoricalData,
+            lastHistoricalData:
+                lastHistoricalData || coinExists.lastHistoricalData,
+        });
+
+        await this.coins.splice(this.coins.indexOf(coinExists), 1, updatedCoin);
+
+        return updatedCoin;
+    }
+
+    async remove(id: string): Promise<void> {
+        const coinExists = this.coins.find((coin) => coin.id === id);
+        await this.coins.splice(this.coins.indexOf(coinExists), 1);
     }
 }

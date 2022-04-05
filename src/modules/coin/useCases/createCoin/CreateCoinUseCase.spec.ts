@@ -2,7 +2,7 @@ import { CoinRepositoryInMemory } from "@modules/coin/repositories/in-memory/Coi
 
 import { CreateCoinUseCase } from "./CreateCoinUseCase";
 
-describe("Create coin", () => {
+describe("Coin", () => {
     let createCoinUseCase: CreateCoinUseCase;
     let coinRepositoryInMemory: CoinRepositoryInMemory;
 

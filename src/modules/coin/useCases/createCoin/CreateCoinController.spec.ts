@@ -1,7 +1,11 @@
 import request from "supertest";
 import { app } from "@shared/infra/http/app";
 
-describe("CreateCoinController", () => {
+describe("Coin", () => {
+    it("1 should be one", () => {
+        const one = 1;
+        expect(one).toBe(1);
+    });
     // it("Should return a 201 empty response", async () => {
     //     const response = await request(app).post("api/v1/coins").send({
     //         name: "string",

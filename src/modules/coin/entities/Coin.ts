@@ -10,7 +10,7 @@ import { v4 as uuidV4 } from "uuid";
 @Entity("coins")
 export class Coin {
     @PrimaryColumn()
-    id: string;
+    id?: string;
     @Column()
     name: string;
     @Column()

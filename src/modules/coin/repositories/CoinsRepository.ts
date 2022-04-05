@@ -2,6 +2,7 @@ import { ICreateCoinDTO } from "@modules/coin/dtos/ICreateCoinDTO";
 import { ICoinsRepository } from "@modules/coin/repositories/interfaces/ICoinRepository";
 import { getRepository, Repository } from "typeorm";
 
+import { IUpdateCoinDTO } from "../dtos/IUpdateCoinDTO";
 import { Coin } from "../entities/Coin";
 
 export class CoinsRepository implements ICoinsRepository {
@@ -51,5 +52,42 @@ export class CoinsRepository implements ICoinsRepository {
 
     async findBySymbol(symbol: string): Promise<Coin> {
         return this.repository.findOne({ symbol });
+    }
+
+    async update({
+        id,
+        name,
+        isFiat,
+        country,
+        description,
+        logo,
+        symbol,
+        isActive,
+        firstHistoricalData,
+        lastHistoricalData,
+    }: IUpdateCoinDTO): Promise<Coin> {
+        const oldCoin = await this.repository.findOne({ id });
+        const coin = await this.repository.update(
+            { id },
+            {
+                name: name || oldCoin.name,
+                isFiat: isFiat || oldCoin.isFiat,
+                country: country || oldCoin.country,
+                description: description || oldCoin.description,
+                logo: logo || oldCoin.logo,
+                symbol: symbol || oldCoin.symbol,
+                isActive: isActive || oldCoin.isActive,
+                firstHistoricalData:
+                    firstHistoricalData || oldCoin.firstHistoricalData,
+                lastHistoricalData:
+                    lastHistoricalData || oldCoin.lastHistoricalData,
+                updatedAt: new Date(),
+            }
+        );
+
+        return coin.raw[0];
+    }
+    async remove(id: string): Promise<void> {
+        await this.repository.delete(id);
     }
 }
