@@ -13,8 +13,6 @@ export class RemoveCoinUseCase {
     async execute(id: string) {
         const coinExists = await this.coinsRepository.findByIds([id]);
 
-        console.error(coinExists[0]);
-
         if (coinExists[0]) {
             await this.coinsRepository.remove(id);
         } else {

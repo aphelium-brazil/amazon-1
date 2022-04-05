@@ -67,6 +67,7 @@ export class CoinsRepository implements ICoinsRepository {
         lastHistoricalData,
     }: IUpdateCoinDTO): Promise<Coin> {
         const oldCoin = await this.repository.findOne({ id });
+        const updateDate = new Date();
         const coin = await this.repository.update(
             { id },
             {
@@ -81,7 +82,14 @@ export class CoinsRepository implements ICoinsRepository {
                     firstHistoricalData || oldCoin.firstHistoricalData,
                 lastHistoricalData:
                     lastHistoricalData || oldCoin.lastHistoricalData,
-                updatedAt: new Date(),
+                updatedAt: new Date(
+                    updateDate.getUTCFullYear(),
+                    updateDate.getUTCMonth(),
+                    updateDate.getUTCDate(),
+                    updateDate.getUTCHours(),
+                    updateDate.getUTCMinutes(),
+                    updateDate.getUTCSeconds()
+                ),
             }
         );
 

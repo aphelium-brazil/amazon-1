@@ -1,20 +1,20 @@
 import { CoinRepositoryInMemory } from "@modules/coin/repositories/in-memory/CoinRepositoryInMemory";
 
 import { CreateCoinUseCase } from "../createCoin/CreateCoinUseCase";
-import { RemoveCoinUseCase } from "./RemoveCoinUseCase";
+import { FindCoinByIdUseCase } from "./ListCoinsUseCase";
 
 describe("Coin", () => {
     let createCoinUseCase: CreateCoinUseCase;
-    let removeCoinUseCase: RemoveCoinUseCase;
+    let findCoinByIdUseCase: FindCoinByIdUseCase;
     let coinRepositoryInMemory: CoinRepositoryInMemory;
 
     beforeEach(() => {
         coinRepositoryInMemory = new CoinRepositoryInMemory();
         createCoinUseCase = new CreateCoinUseCase(coinRepositoryInMemory);
-        removeCoinUseCase = new RemoveCoinUseCase(coinRepositoryInMemory);
+        findCoinByIdUseCase = new FindCoinByIdUseCase(coinRepositoryInMemory);
     });
 
-    describe("RemoveCoinUseCase", () => {
+    describe("FindCoinByIdUseCase", () => {
         it("should be defined", async () => {
             const coin = await createCoinUseCase.execute({
                 name: "string",
@@ -27,13 +27,9 @@ describe("Coin", () => {
                 lastHistoricalData: "string",
             });
 
-            await removeCoinUseCase.execute(coin.id);
+            const result = await findCoinByIdUseCase.execute(coin.id);
 
-            const coinRemoved = await coinRepositoryInMemory.findByIds([
-                coin.id,
-            ]);
-
-            expect(coinRemoved).toHaveLength(0);
+            expect(result.id).toBe(coin.id);
         });
     });
 });
