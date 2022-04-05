@@ -1,22 +1,22 @@
 import { CoinRepositoryInMemory } from "@modules/coin/repositories/in-memory/CoinRepositoryInMemory";
 
 import { CreateCoinUseCase } from "../createCoin/CreateCoinUseCase";
-import { FindCoinByIdUseCase } from "./ListCoinsUseCase";
+import { ListCoinsUseCase } from "./ListCoinsUseCase";
 
 describe("Coin", () => {
     let createCoinUseCase: CreateCoinUseCase;
-    let findCoinByIdUseCase: FindCoinByIdUseCase;
+    let listCoinsUseCase: ListCoinsUseCase;
     let coinRepositoryInMemory: CoinRepositoryInMemory;
 
     beforeEach(() => {
         coinRepositoryInMemory = new CoinRepositoryInMemory();
         createCoinUseCase = new CreateCoinUseCase(coinRepositoryInMemory);
-        findCoinByIdUseCase = new FindCoinByIdUseCase(coinRepositoryInMemory);
+        listCoinsUseCase = new ListCoinsUseCase(coinRepositoryInMemory);
     });
 
-    describe("FindCoinByIdUseCase", () => {
+    describe("ListCoinsUseCase", () => {
         it("should be defined", async () => {
-            const coin = await createCoinUseCase.execute({
+            await createCoinUseCase.execute({
                 name: "string",
                 isFiat: false,
                 description: "string",
@@ -27,9 +27,9 @@ describe("Coin", () => {
                 lastHistoricalData: "string",
             });
 
-            const result = await findCoinByIdUseCase.execute(coin.id);
+            const result = await listCoinsUseCase.execute();
 
-            expect(result.id).toBe(coin.id);
+            expect(result.length).toBe(1);
         });
     });
 });
