@@ -1,38 +1,38 @@
-import { Request, Response } from "express";
-import { container } from "tsyringe";
+import { Request, Response } from 'express';
+import { container } from 'tsyringe';
 
-import { UpdateCoinUseCase } from "./UpdateCoinUseCase";
+import { UpdateCoinUseCase } from './UpdateCoinUseCase';
 
 export class UpdateCoinController {
-    async handle(request: Request, response: Response): Promise<Response> {
-        const { id } = request.params;
-        const {
-            name,
-            isFiat,
-            country,
-            description,
-            logo,
-            symbol,
-            isActive,
-            firstHistoricalData,
-            lastHistoricalData,
-        } = request.body;
+	async handle(request: Request, response: Response): Promise<Response> {
+		const { id } = request.params;
+		const {
+			name,
+			isFiat,
+			country,
+			description,
+			logo,
+			symbol,
+			isActive,
+			firstHistoricalData,
+			lastHistoricalData
+		} = request.body;
 
-        const updateCoinUseCase = await container.resolve(UpdateCoinUseCase);
+		const updateCoinUseCase = await container.resolve(UpdateCoinUseCase);
 
-        await updateCoinUseCase.execute({
-            id,
-            name,
-            isFiat,
-            country,
-            description,
-            logo,
-            symbol,
-            isActive,
-            firstHistoricalData,
-            lastHistoricalData,
-        });
+		await updateCoinUseCase.execute({
+			id,
+			name,
+			isFiat,
+			country,
+			description,
+			logo,
+			symbol,
+			isActive,
+			firstHistoricalData,
+			lastHistoricalData
+		});
 
-        return response.status(200).send();
-    }
+		return response.status(200).send();
+	}
 }

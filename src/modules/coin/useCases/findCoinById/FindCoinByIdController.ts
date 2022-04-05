@@ -1,18 +1,16 @@
-import { Request, Response } from "express";
-import { container } from "tsyringe";
+import { Request, Response } from 'express';
+import { container } from 'tsyringe';
 
-import { FindCoinByIdUseCase } from "./FindCoinByIdUseCase";
+import { FindCoinByIdUseCase } from './FindCoinByIdUseCase';
 
 export class FindCoinByIdController {
-    async handle(request: Request, response: Response): Promise<Response> {
-        const { id } = request.params;
+	async handle(request: Request, response: Response): Promise<Response> {
+		const { id } = request.params;
 
-        const findCoinByIdUseCase = await container.resolve(
-            FindCoinByIdUseCase
-        );
+		const findCoinByIdUseCase = await container.resolve(FindCoinByIdUseCase);
 
-        const coin = await findCoinByIdUseCase.execute(id);
+		const coin = await findCoinByIdUseCase.execute(id);
 
-        return response.status(200).send(coin);
-    }
+		return response.status(200).send(coin);
+	}
 }
