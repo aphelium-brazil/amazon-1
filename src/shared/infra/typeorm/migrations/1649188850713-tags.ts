@@ -11,14 +11,28 @@ export class tags1649188850713 implements MigrationInterface {
                     {
                         name: "id",
                         type: "uuid",
+                        isPrimary: true,
+
                     },
                     {
                         name: "name",
                         type: "varchar",
+                        isUnique: true,
                     },
                     {
                         name: "description",
                         type: "varchar",
+                        isNullable: true,
+                    },
+                    {
+                        name: "createdAt",
+                        type: "timestamp",
+                        default: "now()",
+                    },
+                    {
+                        name: "updatedAt",
+                        type: "timestamp",
+                        default: "now()",
                     },
                 ],
             })

@@ -11,6 +11,8 @@ import { KlineRepository } from "@modules/kline/repositories/KlineRepository";
 import { SwapsRepository } from "@modules/swap/repositories/SwapsRepository";
 import { container } from "tsyringe";
 import { ISwapsRepository } from "@modules/swap/repositories/interfaces/ISwapsRepository";
+import { ITagsRepository } from "@modules/coin/repositories/interfaces/ITagsRepository";
+import { TagsRepository } from "@modules/coin/repositories/TagsRepository";
 
 container.registerSingleton<IBrokerRepository>(
     "BrokersRepository",
@@ -41,3 +43,8 @@ container.registerSingleton<IKlineRepository>(
     "KlineRepository",
     KlineRepository
 );
+
+container.registerSingleton<ITagsRepository>(
+    "TagsRepository",
+    TagsRepository
+)
