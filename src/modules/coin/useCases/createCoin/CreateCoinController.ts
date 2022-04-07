@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 
+import { AppError } from "@shared/errors/AppError";
+
 import { CreateCoinUseCase } from "./CreateCoinUseCase";
 
 export class CreateCoinController {
