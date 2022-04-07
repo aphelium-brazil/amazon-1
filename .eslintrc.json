@@ -10,17 +10,33 @@
 		"eslint:recommended",
 		"plugin:@typescript-eslint/eslint-recommended",
 		"plugin:@typescript-eslint/recommended",
-		"plugin:@typescript-eslint/recommended-requiring-type-checking",
-		"plugin:prettier/recommended"
+		"plugin:@typescript-eslint/recommended-requiring-type-checking"
 	],
 	"parserOptions": {
 		"ecmaVersion": "latest",
 		"project": "./tsconfig.json"
 	},
 	"rules": {
+		// Promises mistakes that costs performance
 		"no-return-await": "error",
+		"no-await-in-loop": "error",
+
+		// Related to possible logic errors
+		"no-unused-private-class-members": "error",
+		"no-unreachable-loop": "error",
+
+		// Typings
 		"@typescript-eslint/no-unsafe-assignment": "off",
 		"@typescript-eslint/restrict-template-expressions": "off",
-		"@typescript-eslint/require-await": "off"
+		"@typescript-eslint/array-type": ["error", { "default": "array-simple" }],
+
+		// Logics and code
+		"no-shadow": "off",
+		"@typescript-eslint/require-await": "off",
+		"@typescript-eslint/prefer-readonly": "error",
+		"@typescript-eslint/no-misused-new": "error",
+		"@typescript-eslint/no-shadow": ["error"],
+		"@typescript-eslint/lines-between-class-members": "error",
+		"@typescript-eslint/no-misused-promises": "error"
 	}
 }
