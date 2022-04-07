@@ -10,11 +10,11 @@
 	},
 	"scripts": {
 		"typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
-		"dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn ./src/index.ts",
+		"dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn ./src/index.ts",
 		"test": "jest --runInBand --detectOpenHandles",
 		"test:clean": "jest --clearCache ",
 		"test:dev": "jest --watch --passWithNoTests",
-		"seed:admin": "ts-node-dev -r tsconfig-paths/register  src/shared/infra/typeorm/seed/admin.ts",
+		"seed:admin": "ts-node-dev -r tsconfig-paths/register src/shared/infra/typeorm/seed/admin.ts",
 		"start": "node ./dist/index.js",
 		"lint": "eslint .",
 		"format": "prettier --write .",
