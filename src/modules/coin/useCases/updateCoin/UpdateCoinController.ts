@@ -6,6 +6,7 @@ import { UpdateCoinUseCase } from './UpdateCoinUseCase';
 export class UpdateCoinController {
 	async handle(request: Request, response: Response): Promise<Response> {
 		const { id } = request.params;
+
 		const {
 			name,
 			isFiat,
@@ -18,7 +19,7 @@ export class UpdateCoinController {
 			lastHistoricalData
 		} = request.body;
 
-		const updateCoinUseCase = await container.resolve(UpdateCoinUseCase);
+		const updateCoinUseCase = container.resolve(UpdateCoinUseCase);
 
 		await updateCoinUseCase.execute({
 			id,

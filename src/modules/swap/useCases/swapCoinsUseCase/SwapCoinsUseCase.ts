@@ -9,12 +9,12 @@ import { inject, injectable } from 'tsyringe';
 export class SwapCoinsUseCase {
 	constructor(
 		@inject('SwapsRepository')
-		private swapsRepository: ISwapsRepository,
+		private readonly swapsRepository: ISwapsRepository,
 		@inject('CoinsRepository')
-		private coinsRepository: ICoinsRepository
+		private readonly coinsRepository: ICoinsRepository
 	) {}
 
-	private coins: Coin[] = [];
+	private readonly coins: Coin[] = [];
 
 	async execute({ swapId, fromId, toId }: ICreateSwapRelationDTO): Promise<Swap> {
 		const swapExists = await this.swapsRepository.findByIds([swapId]);

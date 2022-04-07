@@ -7,7 +7,7 @@ export class RemoveCoinController {
 	async handle(request: Request, response: Response): Promise<Response> {
 		const { id } = request.params;
 
-		const removeCoinUseCase = await container.resolve(RemoveCoinUseCase);
+		const removeCoinUseCase = container.resolve(RemoveCoinUseCase);
 
 		await removeCoinUseCase.execute(id);
 

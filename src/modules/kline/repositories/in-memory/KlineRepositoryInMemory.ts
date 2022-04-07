@@ -3,7 +3,7 @@ import { Kline } from '@modules/kline/entities/Kline';
 import { IKlineRepository } from '../interfaces/IKlineRepository';
 
 export class KlineRepositoryInMemory implements IKlineRepository {
-	private klines: Kline[] = [];
+	private readonly klines: Kline[] = [];
 
 	async create({ interval, brokerId, swapId }: ICreateKlineDTO): Promise<Kline> {
 		const kline = new Kline();

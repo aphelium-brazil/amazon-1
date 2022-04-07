@@ -8,7 +8,7 @@ import { inject, injectable } from 'tsyringe';
 export class CreateCoinUseCase {
 	constructor(
 		@inject('CoinsRepository')
-		private coinRepository: ICoinsRepository
+		private readonly coinRepository: ICoinsRepository
 	) {}
 
 	async execute({

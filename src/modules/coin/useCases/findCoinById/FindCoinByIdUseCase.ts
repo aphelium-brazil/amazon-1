@@ -6,7 +6,7 @@ import { inject, injectable } from 'tsyringe';
 export class FindCoinByIdUseCase {
 	constructor(
 		@inject('CoinsRepository')
-		private coinRepository: ICoinsRepository
+		private readonly coinRepository: ICoinsRepository
 	) {}
 
 	async execute(id: string): Promise<Coin> {

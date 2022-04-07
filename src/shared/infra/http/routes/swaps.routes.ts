@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/unbound-method */
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { CreateSwapController } from '@modules/swap/useCases/createSwapUseCase/CreateSwapController';
 import { ListSwapsController } from '@modules/swap/useCases/listSwapsUseCase/ListSwapsController';
 import { SwapCoinsController } from '@modules/swap/useCases/swapCoinsUseCase/SwapCoinsController';

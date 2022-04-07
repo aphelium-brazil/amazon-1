@@ -5,7 +5,7 @@ import { ListCoinsUseCase } from './ListCoinsUseCase';
 
 export class ListCoinsController {
 	async handle(request: Request, response: Response): Promise<Response> {
-		const listCoinsUseCase = await container.resolve(ListCoinsUseCase);
+		const listCoinsUseCase = container.resolve(ListCoinsUseCase);
 
 		const coins = await listCoinsUseCase.execute();
 

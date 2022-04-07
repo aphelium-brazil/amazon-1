@@ -8,9 +8,9 @@ import { inject, injectable } from 'tsyringe';
 export class SwapAvailableInBrokerUseCase {
 	constructor(
 		@inject('SwapsRepository')
-		private swapsRepository: ISwapsRepository,
+		private readonly swapsRepository: ISwapsRepository,
 		@inject('BrokersRepository')
-		private brokersReposity: IBrokerRepository
+		private readonly brokersReposity: IBrokerRepository
 	) {}
 
 	async execute({ brokerId, swaps }: ISwapAvailableInBrokerDTO): Promise<Broker> {

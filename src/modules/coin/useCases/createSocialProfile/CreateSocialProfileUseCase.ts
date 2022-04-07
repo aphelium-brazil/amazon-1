@@ -7,7 +7,7 @@ import { inject, injectable } from 'tsyringe';
 export class CreateSocialProfileUseCase {
 	constructor(
 		@inject('SocialProfileRepository')
-		private socialProfile: ISocialProfileRepository
+		private readonly socialProfile: ISocialProfileRepository
 	) {}
 
 	async execute({

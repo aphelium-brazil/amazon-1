@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/unbound-method */
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { CreateCoinController } from '@modules/coin/useCases/createCoin/CreateCoinController';
 import { FindCoinByIdController } from '@modules/coin/useCases/findCoinById/FindCoinByIdController';
 import { ListCoinsController } from '@modules/coin/useCases/listCoins/ListCoinsController';

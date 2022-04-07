@@ -4,13 +4,16 @@ import { v4 as uuidV4 } from 'uuid';
 @Entity('explorers')
 export class Explorer {
 	@PrimaryColumn()
-	id: string;
+	id!: string;
+
 	@Column()
-	name: string;
+	name!: string;
+
 	@Column()
-	description: string;
+	description!: string;
+
 	@Column()
-	url: string;
+	url!: string;
 
 	constructor() {
 		if (!this.id) {

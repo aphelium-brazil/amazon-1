@@ -6,7 +6,7 @@ import { inject, injectable } from 'tsyringe';
 export class CreateSwapUseCase {
 	constructor(
 		@inject('SwapsRepository')
-		private swapsRepository: ISwapsRepository
+		private readonly swapsRepository: ISwapsRepository
 	) {}
 
 	async execute({ name, isActive }: ICreateSwapDTO) {

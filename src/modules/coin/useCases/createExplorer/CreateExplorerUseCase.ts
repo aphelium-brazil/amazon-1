@@ -7,7 +7,7 @@ import { inject, injectable } from 'tsyringe';
 export class CreateExplorerUseCase {
 	constructor(
 		@inject('ExplorerRepository')
-		private explorer: IExplorerRepository
+		private readonly explorer: IExplorerRepository
 	) {}
 
 	async execute({ name, description, url }: ICreateExplorerDTO): Promise<Explorer> {

@@ -2,7 +2,7 @@ import upload from '@config/upload';
 import * as Sentry from '@sentry/node';
 import * as Tracing from '@sentry/tracing';
 import cors from 'cors';
-import express, { NextFunction, Request, Response } from 'express';
+import express, { Request, Response } from 'express';
 import swaggerUi from 'swagger-ui-express';
 import '@shared/container';
 
@@ -40,7 +40,7 @@ app.use(router);
 
 app.use(Sentry.Handlers.errorHandler());
 
-app.use((err: Error, request: Request, response: Response, _next: NextFunction) => {
+app.use((err: Error, _request: Request, response: Response) => {
 	if (err instanceof AppError) {
 		return response.status(err.statusCode).json({
 			message: err.message

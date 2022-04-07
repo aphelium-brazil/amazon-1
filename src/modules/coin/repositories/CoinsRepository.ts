@@ -1,12 +1,12 @@
-import { ICreateCoinDTO } from '@modules/coin/dtos/ICreateCoinDTO';
-import { ICoinsRepository } from '@modules/coin/repositories/interfaces/ICoinRepository';
+import type { ICreateCoinDTO } from '@modules/coin/dtos/ICreateCoinDTO';
+import type { ICoinsRepository } from '@modules/coin/repositories/interfaces/ICoinRepository';
 import { getRepository, Repository } from 'typeorm';
 
-import { IUpdateCoinDTO } from '../dtos/IUpdateCoinDTO';
+import type { IUpdateCoinDTO } from '../dtos/IUpdateCoinDTO';
 import { Coin } from '../entities/Coin';
 
 export class CoinsRepository implements ICoinsRepository {
-	private repository: Repository<Coin>;
+	private readonly repository: Repository<Coin>;
 
 	constructor() {
 		this.repository = getRepository(Coin);
@@ -46,11 +46,11 @@ export class CoinsRepository implements ICoinsRepository {
 		return this.repository.findByIds(ids);
 	}
 
-	async findByName(name: string): Promise<Coin> {
+	async findByName(name: string) {
 		return this.repository.findOne({ name });
 	}
 
-	async findBySymbol(symbol: string): Promise<Coin> {
+	async findBySymbol(symbol: string) {
 		return this.repository.findOne({ symbol });
 	}
 
@@ -65,34 +65,34 @@ export class CoinsRepository implements ICoinsRepository {
 		isActive,
 		firstHistoricalData,
 		lastHistoricalData
-	}: IUpdateCoinDTO): Promise<Coin> {
+	}: IUpdateCoinDTO) {
 		const oldCoin = await this.repository.findOne({ id });
+
+		if (!oldCoin) {
+			return false;
+		}
+
 		const updateDate = new Date();
+
 		const coin = await this.repository.update(
 			{ id },
 			{
-				name: name || oldCoin.name,
-				isFiat: isFiat || oldCoin.isFiat,
-				country: country || oldCoin.country,
-				description: description || oldCoin.description,
-				logo: logo || oldCoin.logo,
-				symbol: symbol || oldCoin.symbol,
-				isActive: isActive || oldCoin.isActive,
-				firstHistoricalData: firstHistoricalData || oldCoin.firstHistoricalData,
-				lastHistoricalData: lastHistoricalData || oldCoin.lastHistoricalData,
-				updatedAt: new Date(
-					updateDate.getUTCFullYear(),
-					updateDate.getUTCMonth(),
-					updateDate.getUTCDate(),
-					updateDate.getUTCHours(),
-					updateDate.getUTCMinutes(),
-					updateDate.getUTCSeconds()
-				)
+				name,
+				isFiat: isFiat,
+				country: country,
+				description: description,
+				logo: logo,
+				symbol: symbol,
+				isActive: isActive,
+				firstHistoricalData: firstHistoricalData,
+				lastHistoricalData: lastHistoricalData,
+				updatedAt: updateDate
 			}
 		);
 
-		return coin.raw[0];
+		return !!coin.affected;
 	}
+
 	async remove(id: string): Promise<void> {
 		await this.repository.delete(id);
 	}

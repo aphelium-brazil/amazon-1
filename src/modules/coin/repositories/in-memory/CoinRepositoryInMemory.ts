@@ -1,8 +1,7 @@
-import { ICreateCoinDTO } from '@modules/coin/dtos/ICreateCoinDTO';
-import { IUpdateCoinDTO } from '@modules/coin/dtos/IUpdateCoinDTO';
+import type { ICreateCoinDTO } from '@modules/coin/dtos/ICreateCoinDTO';
+import type { IUpdateCoinDTO } from '@modules/coin/dtos/IUpdateCoinDTO';
+import type { ICoinsRepository } from '../interfaces/ICoinRepository';
 import { Coin } from '@modules/coin/entities/Coin';
-
-import { ICoinsRepository } from '../interfaces/ICoinRepository';
 
 export class CoinRepositoryInMemory implements ICoinsRepository {
 	coins: Coin[] = [];
@@ -10,14 +9,16 @@ export class CoinRepositoryInMemory implements ICoinsRepository {
 	async all(): Promise<Coin[]> {
 		return this.coins;
 	}
-	async findBySymbol(symbol: string): Promise<Coin> {
+
+	async findBySymbol(symbol: string) {
 		return this.coins.find((coin) => coin.symbol === symbol);
 	}
 
 	async findByIds(ids: string[]): Promise<Coin[]> {
 		return this.coins.filter((coin) => ids.includes(coin.id));
 	}
-	async findByName(name: string): Promise<Coin> {
+
+	async findByName(name: string) {
 		return this.coins.find((coin) => coin.name === name);
 	}
 
@@ -62,8 +63,12 @@ export class CoinRepositoryInMemory implements ICoinsRepository {
 		isActive,
 		firstHistoricalData,
 		lastHistoricalData
-	}: IUpdateCoinDTO): Promise<Coin> {
+	}: IUpdateCoinDTO): Promise<boolean> {
 		const coinExists = this.coins.find((coin) => coin.id === id);
+
+		if (!coinExists) {
+			return false;
+		}
 
 		const updatedCoin = new Coin();
 
@@ -80,13 +85,18 @@ export class CoinRepositoryInMemory implements ICoinsRepository {
 			lastHistoricalData: lastHistoricalData || coinExists.lastHistoricalData
 		});
 
-		await this.coins.splice(this.coins.indexOf(coinExists), 1, updatedCoin);
+		this.coins.splice(this.coins.indexOf(coinExists), 1, updatedCoin);
 
-		return updatedCoin;
+		return !!updatedCoin;
 	}
 
 	async remove(id: string): Promise<void> {
 		const coinExists = this.coins.find((coin) => coin.id === id);
-		await this.coins.splice(this.coins.indexOf(coinExists), 1);
+
+		if (!coinExists) {
+			return;
+		}
+
+		this.coins.splice(this.coins.indexOf(coinExists), 1);
 	}
 }

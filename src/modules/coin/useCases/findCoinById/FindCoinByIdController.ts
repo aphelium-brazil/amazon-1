@@ -7,7 +7,7 @@ export class FindCoinByIdController {
 	async handle(request: Request, response: Response): Promise<Response> {
 		const { id } = request.params;
 
-		const findCoinByIdUseCase = await container.resolve(FindCoinByIdUseCase);
+		const findCoinByIdUseCase = container.resolve(FindCoinByIdUseCase);
 
 		const coin = await findCoinByIdUseCase.execute(id);
 

@@ -5,7 +5,7 @@ import { getRepository, Repository } from 'typeorm';
 import { Explorer } from '../entities/Explorer';
 
 export class ExplorerRepository implements IExplorerRepository {
-	private repository: Repository<Explorer>;
+	private readonly repository: Repository<Explorer>;
 
 	constructor() {
 		this.repository = getRepository(Explorer);

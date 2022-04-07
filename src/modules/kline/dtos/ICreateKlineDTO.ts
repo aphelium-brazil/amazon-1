@@ -1,4 +1,4 @@
-import { IntervalEnums } from '../enums/IntervalEnums';
+import type { IntervalEnums } from '../enums/IntervalEnums';
 
 export interface ICreateKlineDTO {
 	interval: IntervalEnums;

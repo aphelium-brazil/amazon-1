@@ -1,24 +1,22 @@
-import { ICreateBrokerDTO } from '@modules/brokers/dtos/ICreateBrokerDTO';
-import { IBrokerRepository } from '@modules/brokers/repositories/interfaces/IBrokerRepository';
+import type { ICreateBrokerDTO } from '@modules/brokers/dtos/ICreateBrokerDTO';
+import type { IBrokerRepository } from '@modules/brokers/repositories/interfaces/IBrokerRepository';
 import { getRepository, Repository } from 'typeorm';
 
 import { Broker } from '../entities/Broker';
 
 export class BrokersRepository implements IBrokerRepository {
-	private repository: Repository<Broker>;
+	private readonly repository: Repository<Broker>;
 
 	constructor() {
 		this.repository = getRepository(Broker);
 	}
 
-	async findById(id: string): Promise<Broker> {
-		const broker = await this.repository.findOne(id);
-		return broker;
+	async findById(id: string) {
+		return this.repository.findOne(id);
 	}
 
-	async findByName(name: string): Promise<Broker> {
-		const broker = await this.repository.findOne({ name });
-		return broker;
+	async findByName(name: string) {
+		return this.repository.findOne({ name });
 	}
 
 	async create({

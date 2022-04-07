@@ -11,20 +11,28 @@ import { v4 as uuidV4 } from 'uuid';
 export class SocialProfile {
 	@PrimaryColumn()
 	id: string;
+
 	@Column()
 	name: string;
+
 	@Column()
 	description: string;
+
 	@Column()
 	url: string;
+
 	@Column()
 	username: string;
+
 	@Column()
 	socialNetwork: string;
+
 	@Column()
 	official: boolean;
+
 	@CreateDateColumn()
 	createdAt: Date;
+
 	@UpdateDateColumn()
 	updatedAt: Date;
 

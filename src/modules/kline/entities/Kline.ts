@@ -11,27 +11,27 @@ import { v4 as uuidV4 } from 'uuid';
 @Entity('klines')
 export class Kline {
 	@PrimaryColumn()
-	id: string;
+	id!: string;
 
 	@Column({
 		type: 'enum',
 		enum: IntervalEnums
 	})
-	interval: IntervalEnums;
+	interval!: IntervalEnums;
 
 	@Column()
-	swapId: string;
+	swapId!: string;
 
 	@Column()
-	brokerId: string;
+	brokerId!: string;
 
 	candles?: any[];
 
 	@CreateDateColumn()
-	createdAt: Date;
+	createdAt!: Date;
 
 	@UpdateDateColumn()
-	updatedAt: Date;
+	updatedAt!: Date;
 
 	constructor() {
 		if (!this.id) {

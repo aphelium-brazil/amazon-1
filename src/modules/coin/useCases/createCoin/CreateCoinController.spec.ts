@@ -1,5 +1,5 @@
-import request from 'supertest';
-import { app } from '@shared/infra/http/app';
+// import request from 'supertest';
+// import { app } from '@shared/infra/http/app';
 
 describe('Coin', () => {
 	it('1 should be one', () => {

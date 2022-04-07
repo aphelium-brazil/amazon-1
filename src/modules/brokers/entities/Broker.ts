@@ -14,14 +14,19 @@ import { v4 as uuidV4 } from 'uuid';
 export class Broker {
 	@PrimaryColumn()
 	id: string;
+
 	@Column()
 	name: string;
+
 	@Column()
 	description: string;
+
 	@Column()
 	slug: string;
+
 	@Column()
 	logo: string;
+
 	@Column()
 	dateLaunched: Date;
 
@@ -55,6 +60,7 @@ export class Broker {
 
 	@CreateDateColumn()
 	createdAt: Date;
+
 	@UpdateDateColumn()
 	updatedAt: Date;
 

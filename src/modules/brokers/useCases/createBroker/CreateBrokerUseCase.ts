@@ -16,7 +16,7 @@ interface IRequest {
 export class CreateBrokerUseCase {
 	constructor(
 		@inject('BrokersRepository')
-		private brokerRepository: IBrokerRepository
+		private readonly brokerRepository: IBrokerRepository
 	) {}
 
 	async execute({

@@ -46,7 +46,7 @@ describe('include swap in brokers', () => {
 			isActive: true
 		});
 
-		const swapsBroker = await swapAvailableInBrokerUseCase.execute({
+		await swapAvailableInBrokerUseCase.execute({
 			brokerId: broker.id,
 			swaps: [swapOne.id, swapTwo.id]
 		});

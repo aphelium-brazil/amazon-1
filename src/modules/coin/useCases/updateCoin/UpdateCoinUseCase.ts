@@ -9,7 +9,7 @@ import { AppError } from '@shared/errors/AppError';
 export class UpdateCoinUseCase {
 	constructor(
 		@inject('CoinsRepository')
-		private coinsRepository: ICoinsRepository
+		private readonly coinsRepository: ICoinsRepository
 	) {}
 
 	async execute({

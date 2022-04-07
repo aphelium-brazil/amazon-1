@@ -5,7 +5,7 @@ import { FindManyOptions, getRepository, Repository } from 'typeorm';
 import { IKlineRepository } from '@modules/kline/repositories/interfaces/IKlineRepository';
 
 export class KlineRepository implements IKlineRepository {
-	private repository: Repository<Kline>;
+	private readonly repository: Repository<Kline>;
 
 	constructor() {
 		this.repository = getRepository(Kline);

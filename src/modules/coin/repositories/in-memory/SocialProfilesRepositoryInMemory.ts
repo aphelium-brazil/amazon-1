@@ -1,6 +1,6 @@
-import { ICreateSocialProfileDTO } from '@modules/coin/dtos/ICreateSocialProfileDTO';
+import type { ICreateSocialProfileDTO } from '@modules/coin/dtos/ICreateSocialProfileDTO';
 import { SocialProfile } from '@modules/coin/entities/SocialProfile';
-import { ISocialProfileRepository } from '../interfaces/ISocialProfileRepository';
+import type { ISocialProfileRepository } from '../interfaces/ISocialProfileRepository';
 
 export class SocialProfilesRepositoryInMemory implements ISocialProfileRepository {
 	socialProfiles: SocialProfile[] = [];

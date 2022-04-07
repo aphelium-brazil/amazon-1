@@ -10,34 +10,40 @@ import { v4 as uuidV4 } from 'uuid';
 @Entity('coins')
 export class Coin {
 	@PrimaryColumn()
-	id?: string;
-	@Column()
-	name: string;
-	@Column()
-	description: string;
-	@Column()
-	symbol: string;
+	id!: string;
 
 	@Column()
-	isFiat: boolean;
+	name!: string;
 
 	@Column()
-	country: string;
+	description!: string;
 
 	@Column()
-	logo: string;
+	symbol!: string;
 
 	@Column()
-	isActive: boolean;
+	isFiat!: boolean;
+
 	@Column()
-	firstHistoricalData: string;
+	country!: string;
+
 	@Column()
-	lastHistoricalData: string;
+	logo!: string;
+
+	@Column()
+	isActive!: boolean;
+
+	@Column()
+	firstHistoricalData!: string;
+
+	@Column()
+	lastHistoricalData!: string;
 
 	@CreateDateColumn()
-	createdAt: Date;
+	createdAt!: Date;
+
 	@UpdateDateColumn()
-	updatedAt: Date;
+	updatedAt!: Date;
 
 	constructor() {
 		if (!this.id) {

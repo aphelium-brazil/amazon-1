@@ -5,7 +5,7 @@ import { getRepository, Repository } from 'typeorm';
 import { SocialProfile } from '../entities/SocialProfile';
 
 export class SocialProfilesRepository implements ISocialProfileRepository {
-	private repository: Repository<SocialProfile>;
+	private readonly repository: Repository<SocialProfile>;
 
 	constructor() {
 		this.repository = getRepository(SocialProfile);

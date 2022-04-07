@@ -11,11 +11,11 @@ import { AppError } from '@shared/errors/AppError';
 export class CreateKlineUseCase {
 	constructor(
 		@inject('KlineRepository')
-		private klineRepository: IKlineRepository,
+		private readonly klineRepository: IKlineRepository,
 		@inject('SwapsRepository')
-		private swapRepository: ISwapsRepository,
+		private readonly swapRepository: ISwapsRepository,
 		@inject('BrokersRepository')
-		private brokerRepository: IBrokerRepository
+		private readonly brokerRepository: IBrokerRepository
 	) {}
 
 	async execute({ interval, brokerId, swapId }: ICreateKlineDTO): Promise<Kline> {
