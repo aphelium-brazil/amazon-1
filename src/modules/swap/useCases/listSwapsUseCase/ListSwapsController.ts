@@ -1,10 +1,10 @@
-import { Response, Request } from 'express';
+import type { Response, Request } from 'express';
 import { container } from 'tsyringe';
 
 import { ListSwapsUseCase } from './ListSwapsUseCase';
 
 export class ListSwapsController {
-	async handle(request: Request, response: Response): Promise<Response> {
+	async handle(_request: Request, response: Response): Promise<Response> {
 		const listSwapsUseCase = container.resolve(ListSwapsUseCase);
 
 		const swaps = await listSwapsUseCase.execute();

@@ -13,22 +13,22 @@ import { v4 as uuidV4 } from 'uuid';
 @Entity('brokers')
 export class Broker {
 	@PrimaryColumn()
-	id: string;
+	id!: string;
 
 	@Column()
-	name: string;
+	name!: string;
 
 	@Column()
-	description: string;
+	description!: string;
 
 	@Column()
-	slug: string;
+	slug!: string;
 
 	@Column()
-	logo: string;
+	logo!: string;
 
 	@Column()
-	dateLaunched: Date;
+	dateLaunched!: Date;
 
 	@ManyToMany(() => Swap)
 	@JoinTable({
@@ -42,7 +42,7 @@ export class Broker {
 			referencedColumnName: 'id'
 		}
 	})
-	swaps: Swap[];
+	swaps!: Swap[];
 
 	// @ManyToMany(() => Coin)
 	// @JoinTable({
@@ -59,10 +59,10 @@ export class Broker {
 	// coins: Coin[];
 
 	@CreateDateColumn()
-	createdAt: Date;
+	createdAt!: Date;
 
 	@UpdateDateColumn()
-	updatedAt: Date;
+	updatedAt!: Date;
 
 	constructor() {
 		if (!this.id) {

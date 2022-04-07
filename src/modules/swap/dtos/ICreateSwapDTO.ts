@@ -1,4 +1,4 @@
-import { Coin } from '@modules/coin/entities/Coin';
+import type { Coin } from '@modules/coin/entities/Coin';
 
 export interface ICreateSwapDTO {
 	name: string;

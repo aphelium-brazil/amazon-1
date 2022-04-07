@@ -2,7 +2,8 @@ import upload from '@config/upload';
 import * as Sentry from '@sentry/node';
 import * as Tracing from '@sentry/tracing';
 import cors from 'cors';
-import express, { Request, Response } from 'express';
+import type { Request, Response } from 'express';
+import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 import '@shared/container';
 

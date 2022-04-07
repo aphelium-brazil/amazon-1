@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 import { RemoveCoinUseCase } from './RemoveCoinUseCase';
@@ -8,6 +8,10 @@ export class RemoveCoinController {
 		const { id } = request.params;
 
 		const removeCoinUseCase = container.resolve(RemoveCoinUseCase);
+
+		if (!id) {
+			throw new Error('ID not found!');
+		}
 
 		await removeCoinUseCase.execute(id);
 

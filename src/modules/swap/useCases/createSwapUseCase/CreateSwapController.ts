@@ -1,4 +1,4 @@
-import { Response, Request } from 'express';
+import type { Response, Request } from 'express';
 import { container } from 'tsyringe';
 
 import { CreateSwapUseCase } from './CreateSwapUseCase';

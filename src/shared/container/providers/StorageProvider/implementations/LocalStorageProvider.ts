@@ -2,7 +2,7 @@ import upload from '@config/upload';
 import fs from 'fs';
 import { resolve } from 'path';
 
-import { IStorageProvider } from '../IStorageProvider';
+import type { IStorageProvider } from '../IStorageProvider';
 
 export class LocalStorageProvider implements IStorageProvider {
 	async save(file: string, folder: string): Promise<string> {

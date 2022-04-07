@@ -10,31 +10,31 @@ import { v4 as uuidV4 } from 'uuid';
 @Entity('socialProfiles')
 export class SocialProfile {
 	@PrimaryColumn()
-	id: string;
+	id!: string;
 
 	@Column()
-	name: string;
+	name!: string;
 
 	@Column()
-	description: string;
+	description!: string;
 
 	@Column()
-	url: string;
+	url!: string;
 
 	@Column()
-	username: string;
+	username!: string;
 
 	@Column()
-	socialNetwork: string;
+	socialNetwork!: string;
 
 	@Column()
-	official: boolean;
+	official!: boolean;
 
 	@CreateDateColumn()
-	createdAt: Date;
+	createdAt!: Date;
 
 	@UpdateDateColumn()
-	updatedAt: Date;
+	updatedAt!: Date;
 
 	constructor() {
 		if (!this.id) {

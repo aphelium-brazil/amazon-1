@@ -44,7 +44,7 @@ describe('create swap between two cryptos', () => {
 			isActive: true
 		});
 
-		const swapCryptos = await swapCoinsUseCase.execute({
+		await swapCoinsUseCase.execute({
 			swapId: swap.id,
 			fromId: bitcoin.id,
 			toId: brl.id

@@ -1,4 +1,4 @@
-import { Coin } from '@modules/coin/entities/Coin';
+import type { Coin } from '@modules/coin/entities/Coin';
 import { ICoinsRepository } from '@modules/coin/repositories/interfaces/ICoinRepository';
 import { inject, injectable } from 'tsyringe';
 

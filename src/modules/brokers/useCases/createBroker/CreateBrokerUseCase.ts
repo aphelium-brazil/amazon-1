@@ -1,5 +1,5 @@
 import { IBrokerRepository } from '@modules/brokers/repositories/interfaces/IBrokerRepository';
-import { Broker } from '@modules/brokers/entities/Broker';
+import type { Broker } from '@modules/brokers/entities/Broker';
 import { inject, injectable } from 'tsyringe';
 
 import { AppError } from '@shared/errors/AppError';
@@ -25,20 +25,19 @@ export class CreateBrokerUseCase {
 		slug,
 		logo,
 		dateLaunched
-	}: IRequest): Promise<Broker> {
+	}: IRequest): Promise<Broker | undefined> {
 		const brokerAlreadyExists = await this.brokerRepository.findByName(name);
 
 		if (brokerAlreadyExists) {
 			throw new AppError('Broker already exists!');
 		}
 
-		const broker = await this.brokerRepository.create({
+		return this.brokerRepository.create({
 			name,
 			description,
 			slug,
 			logo,
 			dateLaunched
 		});
-		return broker;
 	}
 }

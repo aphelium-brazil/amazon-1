@@ -1,6 +1,7 @@
 import type { ICreateSwapDTO } from '@modules/swap/dtos/ICreateSwapDTO';
 import type { ISwapsRepository } from '@modules/swap/repositories/interfaces/ISwapsRepository';
-import { getRepository, Repository } from 'typeorm';
+import type { Repository } from 'typeorm';
+import { getRepository } from 'typeorm';
 
 import { Swap } from '../entities/Swap';
 

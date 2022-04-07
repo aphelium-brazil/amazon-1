@@ -45,6 +45,10 @@ describe('Create Kline', () => {
 			dateLaunched: new Date(1647966991)
 		});
 
+		if (!broker?.id) {
+			throw new Error('Broker not found');
+		}
+
 		const kline = await createKlineUseCase.execute({
 			interval: IntervalEnums['1m'],
 			swapId: swap.id,

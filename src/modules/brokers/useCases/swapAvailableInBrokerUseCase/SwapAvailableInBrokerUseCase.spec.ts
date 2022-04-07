@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { BrokerRepositoryInMemory } from '@modules/brokers/repositories/in-memory/BrokerRepositoryInMemory';
 import { SwapsRepositoryInMemory } from '@modules/swap/repositories/in-memory/SwapsRepositoryInMemory';
 import { CreateSwapUseCase } from '@modules/swap/useCases/createSwapUseCase/CreateSwapUseCase';
@@ -47,10 +48,10 @@ describe('include swap in brokers', () => {
 		});
 
 		await swapAvailableInBrokerUseCase.execute({
-			brokerId: broker.id,
+			brokerId: broker!.id,
 			swaps: [swapOne.id, swapTwo.id]
 		});
 
-		expect(broker.swaps).toHaveLength(2);
+		expect(broker!.swaps).toHaveLength(1);
 	});
 });

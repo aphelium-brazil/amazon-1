@@ -1,6 +1,6 @@
-import { ICreateKlineDTO } from '@modules/kline/dtos/ICreateKlineDTO';
+import type { ICreateKlineDTO } from '@modules/kline/dtos/ICreateKlineDTO';
 import { Kline } from '@modules/kline/entities/Kline';
-import { IKlineRepository } from '../interfaces/IKlineRepository';
+import type { IKlineRepository } from '../interfaces/IKlineRepository';
 
 export class KlineRepositoryInMemory implements IKlineRepository {
 	private readonly klines: Kline[] = [];

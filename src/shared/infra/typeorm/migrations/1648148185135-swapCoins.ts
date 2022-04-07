@@ -1,4 +1,5 @@
-import { MigrationInterface, QueryRunner, Table, TableForeignKey } from 'typeorm';
+import type { MigrationInterface, QueryRunner } from 'typeorm';
+import { Table, TableForeignKey } from 'typeorm';
 
 export class swapCoins1648148185134 implements MigrationInterface {
 	public async up(queryRunner: QueryRunner): Promise<void> {

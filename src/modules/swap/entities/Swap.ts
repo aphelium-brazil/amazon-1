@@ -13,19 +13,19 @@ import { v4 as uuidV4 } from 'uuid';
 @Entity('swaps')
 export class Swap {
 	@PrimaryColumn()
-	id: string;
+	id!: string;
 
 	@Column()
-	name: string;
+	name!: string;
 
 	@Column()
-	isActive: boolean;
+	isActive!: boolean;
 
 	@CreateDateColumn()
-	createdAt: Date;
+	createdAt!: Date;
 
 	@UpdateDateColumn()
-	updatedAt: Date;
+	updatedAt!: Date;
 
 	@ManyToMany(() => Coin)
 	@JoinTable({
@@ -39,7 +39,7 @@ export class Swap {
 			referencedColumnName: 'id'
 		}
 	})
-	coins: Coin[];
+	coins!: Coin[];
 
 	constructor() {
 		if (!this.id) {

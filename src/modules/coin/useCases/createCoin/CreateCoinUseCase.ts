@@ -1,6 +1,6 @@
 import type { ICreateCoinDTO } from '@modules/coin/dtos/ICreateCoinDTO';
 import type { Coin } from '@modules/coin/entities/Coin';
-import type { ICoinsRepository } from '@modules/coin/repositories/interfaces/ICoinRepository';
+import { ICoinsRepository } from '@modules/coin/repositories/interfaces/ICoinRepository';
 import { AppError } from '@shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 

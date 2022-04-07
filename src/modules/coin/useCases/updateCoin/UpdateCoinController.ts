@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 import { UpdateCoinUseCase } from './UpdateCoinUseCase';
@@ -20,6 +20,10 @@ export class UpdateCoinController {
 		} = request.body;
 
 		const updateCoinUseCase = container.resolve(UpdateCoinUseCase);
+
+		if (!id) {
+			throw new Error('ID not found!');
+		}
 
 		await updateCoinUseCase.execute({
 			id,

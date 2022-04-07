@@ -28,9 +28,9 @@ describe('Coin', () => {
 
 			await updateCoinUseCase.execute({ id: coin.id, name: 'Bitcoin' });
 
-			const updatedCoin = await coinRepositoryInMemory.findByIds([coin.id]);
+			const [updatedCoin] = await coinRepositoryInMemory.findByIds([coin.id]);
 
-			expect(updatedCoin[0].name).toBe('Bitcoin');
+			expect(updatedCoin?.name).toBe('Bitcoin');
 		});
 	});
 });

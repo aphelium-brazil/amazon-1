@@ -1,6 +1,6 @@
-import { ICreateExplorerDTO } from '@modules/coin/dtos/ICreateExplorerDTO';
+import type { ICreateExplorerDTO } from '@modules/coin/dtos/ICreateExplorerDTO';
 import { IExplorerRepository } from '@modules/coin/repositories/interfaces/IExplorerRepository';
-import { Explorer } from '@modules/coin/entities/Explorer';
+import type { Explorer } from '@modules/coin/entities/Explorer';
 import { inject, injectable } from 'tsyringe';
 
 @injectable()

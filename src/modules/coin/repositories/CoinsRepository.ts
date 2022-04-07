@@ -1,6 +1,7 @@
 import type { ICreateCoinDTO } from '@modules/coin/dtos/ICreateCoinDTO';
 import type { ICoinsRepository } from '@modules/coin/repositories/interfaces/ICoinRepository';
-import { getRepository, Repository } from 'typeorm';
+import type { Repository } from 'typeorm';
+import { getRepository } from 'typeorm';
 
 import type { IUpdateCoinDTO } from '../dtos/IUpdateCoinDTO';
 import { Coin } from '../entities/Coin';

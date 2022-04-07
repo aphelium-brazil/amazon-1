@@ -1,4 +1,4 @@
-import { Response, Request } from 'express';
+import type { Response, Request } from 'express';
 import { container } from 'tsyringe';
 
 import { SwapAvailableInBrokerUseCase } from './SwapAvailableInBrokerUseCase';
@@ -10,8 +10,11 @@ export class SwapAvailableInBrokerController {
 
 		const swapAvailableInBrokerUseCase = container.resolve(SwapAvailableInBrokerUseCase);
 
+		// FIXME: The ID can be undefined
+
 		const swap = await swapAvailableInBrokerUseCase.execute({
-			brokerId: id,
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			brokerId: id!,
 			swaps
 		});
 

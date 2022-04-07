@@ -1,4 +1,4 @@
-import { ICreateSwapDTO } from '@modules/swap/dtos/ICreateSwapDTO';
+import type { ICreateSwapDTO } from '@modules/swap/dtos/ICreateSwapDTO';
 import { ISwapsRepository } from '@modules/swap/repositories/interfaces/ISwapsRepository';
 import { inject, injectable } from 'tsyringe';
 

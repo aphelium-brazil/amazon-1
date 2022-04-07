@@ -1,5 +1,4 @@
-import { IUpdateCoinDTO } from '@modules/coin/dtos/IUpdateCoinDTO';
-import { Coin } from '@modules/coin/entities/Coin';
+import type { IUpdateCoinDTO } from '@modules/coin/dtos/IUpdateCoinDTO';
 import { ICoinsRepository } from '@modules/coin/repositories/interfaces/ICoinRepository';
 import { inject, injectable } from 'tsyringe';
 
@@ -23,7 +22,7 @@ export class UpdateCoinUseCase {
 		isActive,
 		firstHistoricalData,
 		lastHistoricalData
-	}: IUpdateCoinDTO): Promise<Coin> {
+	}: IUpdateCoinDTO): Promise<void> {
 		// Bussiness Rule: Should not create a new coin if it already exists one with the same name.
 		const coinExists = await this.coinsRepository.findByIds([id]);
 
@@ -62,7 +61,7 @@ export class UpdateCoinUseCase {
 			}
 		}
 
-		const coin = await this.coinsRepository.update({
+		await this.coinsRepository.update({
 			id,
 			name,
 			isFiat,
@@ -74,7 +73,5 @@ export class UpdateCoinUseCase {
 			firstHistoricalData,
 			lastHistoricalData
 		});
-
-		return coin;
 	}
 }

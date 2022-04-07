@@ -1,7 +1,7 @@
 import { IBrokerRepository } from '@modules/brokers/repositories/interfaces/IBrokerRepository';
-import { ICreateKlineDTO } from '@modules/kline/dtos/ICreateKlineDTO';
+import type { ICreateKlineDTO } from '@modules/kline/dtos/ICreateKlineDTO';
 import { IKlineRepository } from '@modules/kline/repositories/interfaces/IKlineRepository';
-import { Kline } from '@modules/kline/entities/Kline';
+import type { Kline } from '@modules/kline/entities/Kline';
 import { ISwapsRepository } from '@modules/swap/repositories/interfaces/ISwapsRepository';
 import { inject, injectable } from 'tsyringe';
 
@@ -20,7 +20,7 @@ export class CreateKlineUseCase {
 
 	async execute({ interval, brokerId, swapId }: ICreateKlineDTO): Promise<Kline> {
 		// Validate if the swap exists
-		const swapExists = await this.swapRepository.findByIds([swapId]);
+		const [swapExists] = await this.swapRepository.findByIds([swapId]);
 
 		if (!swapExists) {
 			throw new AppError('Swap not found');
@@ -47,7 +47,7 @@ export class CreateKlineUseCase {
 		return this.klineRepository.create({
 			interval,
 			brokerId: brokerExists.id,
-			swapId: swapExists[0].id
+			swapId: swapExists.id
 		});
 	}
 }

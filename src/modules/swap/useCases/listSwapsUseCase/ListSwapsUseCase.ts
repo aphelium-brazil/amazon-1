@@ -1,5 +1,5 @@
 import { ISwapsRepository } from '@modules/swap/repositories/interfaces/ISwapsRepository';
-import { Swap } from '@modules/swap/entities/Swap';
+import type { Swap } from '@modules/swap/entities/Swap';
 import { inject, injectable } from 'tsyringe';
 
 @injectable()
