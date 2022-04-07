@@ -5,3 +5,7 @@ coverage
 requirements
 .vscode
 swagger.json
+
+jest.config.ts
+jest.setup.ts
+sonar-project.js
