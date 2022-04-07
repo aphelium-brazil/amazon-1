@@ -1,0 +1,35 @@
+name: Code CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    name: Build, Lint and Test code
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup node and restore cached dependencies
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
+
+      - name: Install packages
+        run: yarn install --prefer-offline
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Test
+        run: yarn test --ci --coverage
+
+      - name: Build code
+        run: yarn build
+
+      - name: Tests formatting
+        run: yarn prettier . --check
