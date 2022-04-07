@@ -30,6 +30,6 @@ jobs:
 
       - name: Build code
         run: yarn build
-      
+
       - name: Tests formatting
         run: yarn prettier . --check

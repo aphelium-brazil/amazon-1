@@ -74,6 +74,7 @@
 		"husky": "^7.0.4",
 		"jest": "^27.5.1",
 		"jest-sonar-reporter": "^2.0.0",
+		"json5": "^2.2.1",
 		"lint-staged": "^12.3.7",
 		"prettier": "^2.6.2",
 		"sonarqube-scanner": "^2.8.1",
