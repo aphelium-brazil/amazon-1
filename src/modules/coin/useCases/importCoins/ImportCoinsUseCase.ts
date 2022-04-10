@@ -1,6 +1,6 @@
 import type { IImportCoinDTO } from '@modules/coin/dtos/IImportCoinDTO';
 import { ICoinsRepository } from '@modules/coin/repositories/interfaces/ICoinRepository';
-import csvParse from 'csv-parse';
+import { parse as csvParse } from 'csv-parse';
 import fs from 'fs';
 import { inject, injectable } from 'tsyringe';
 
