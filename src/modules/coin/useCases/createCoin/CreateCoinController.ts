@@ -1,38 +1,36 @@
-import { Request, Response } from "express";
-import { container } from "tsyringe";
+import type { Request, Response } from 'express';
+import { container } from 'tsyringe';
 
-import { AppError } from "@shared/errors/AppError";
-
-import { CreateCoinUseCase } from "./CreateCoinUseCase";
+import { CreateCoinUseCase } from './CreateCoinUseCase';
 
 export class CreateCoinController {
-    async handle(request: Request, response: Response): Promise<Response> {
-        const {
-            name,
-            isFiat,
-            country,
-            description,
-            logo,
-            symbol,
-            isActive,
-            firstHistoricalData,
-            lastHistoricalData,
-        } = request.body;
+	async handle(request: Request, response: Response): Promise<Response> {
+		const {
+			name,
+			isFiat,
+			country,
+			description,
+			logo,
+			symbol,
+			isActive,
+			firstHistoricalData,
+			lastHistoricalData
+		} = request.body;
 
-        const createCoinUseCase = container.resolve(CreateCoinUseCase);
+		const createCoinUseCase = container.resolve(CreateCoinUseCase);
 
-        await createCoinUseCase.execute({
-            name,
-            isFiat,
-            country,
-            description,
-            logo,
-            symbol,
-            isActive,
-            firstHistoricalData,
-            lastHistoricalData,
-        });
+		await createCoinUseCase.execute({
+			name,
+			isFiat,
+			country,
+			description,
+			logo,
+			symbol,
+			isActive,
+			firstHistoricalData,
+			lastHistoricalData
+		});
 
-        return response.status(201).send();
-    }
+		return response.status(201).send();
+	}
 }

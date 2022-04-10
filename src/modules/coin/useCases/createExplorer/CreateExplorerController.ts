@@ -1,21 +1,21 @@
-import { Request, Response } from "express";
-import { container } from "tsyringe";
+import type { Request, Response } from 'express';
+import { container } from 'tsyringe';
 
-import { CreateExplorerUseCase } from "./CreateExplorerUseCase";
+import { CreateExplorerUseCase } from './CreateExplorerUseCase';
 
 class CreateExplorerController {
-    async handle(request: Request, response: Response): Promise<Response> {
-        const { name, description, url } = request.body;
+	async handle(request: Request, response: Response): Promise<Response> {
+		const { name, description, url } = request.body;
 
-        const createExplorerUseCase = container.resolve(CreateExplorerUseCase);
+		const createExplorerUseCase = container.resolve(CreateExplorerUseCase);
 
-        await createExplorerUseCase.execute({
-            name,
-            description,
-            url,
-        });
+		await createExplorerUseCase.execute({
+			name,
+			description,
+			url
+		});
 
-        return response.status(201).send();
-    }
+		return response.status(201).send();
+	}
 }
 export { CreateExplorerController };

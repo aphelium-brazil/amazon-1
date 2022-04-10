@@ -1,0 +1,10 @@
+# Generated files
+dist
+coverage
+
+# Yarn
+.yarn
+
+# Tmp or local folders
+/tmp
+/local
