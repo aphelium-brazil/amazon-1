@@ -46,7 +46,7 @@
 		"swagger-ui-express": "^4.1.6",
 		"tslib": "^2.3.1",
 		"tsyringe": "^4.6.0",
-		"typeorm": "^0.2.5",
+		"typeorm": "^0.3.5",
 		"uuid": "^8.3.2"
 	},
 	"devDependencies": {
