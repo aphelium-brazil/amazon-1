@@ -19,7 +19,11 @@ export class S3StorageProvider implements IStorageProvider {
 
 		const fileContent = await fs.promises.readFile(originalName);
 
-		const ContentType = mime.getType(originalName)!;
+		const ContentType = mime.getType(originalName);
+
+		if (!ContentType) {
+			throw new Error('Content Type not found');
+		}
 
 		await this.client
 			.putObject({
