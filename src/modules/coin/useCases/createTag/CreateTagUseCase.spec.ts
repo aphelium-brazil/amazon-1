@@ -1,10 +1,10 @@
 import { TagRepositoryInMemory } from '@modules/coin/repositories/in-memory/TagRepositoryInMemory';
 import { CreateTagUseCase } from './CreateTagUseCase';
 
-let createTagUseCase: CreateTagUseCase;
-let tagRepositoryInMemory: TagRepositoryInMemory;
-
 describe('Tag', () => {
+	let createTagUseCase: CreateTagUseCase;
+	let tagRepositoryInMemory: TagRepositoryInMemory;
+
 	beforeEach(() => {
 		tagRepositoryInMemory = new TagRepositoryInMemory();
 		createTagUseCase = new CreateTagUseCase(tagRepositoryInMemory);

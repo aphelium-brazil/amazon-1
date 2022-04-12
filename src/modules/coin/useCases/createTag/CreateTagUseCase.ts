@@ -10,12 +10,10 @@ export class CreateTagUseCase {
 		private readonly tag: ITagsRepository
 	) {}
 
-	async execute({ name, description }: ICreateTagDTO): Promise<Tag> {
-		const tag = await this.tag.create({
+	execute({ name, description }: ICreateTagDTO): Promise<Tag> {
+		return this.tag.create({
 			name,
 			description
 		});
-
-		return tag;
 	}
 }
