@@ -10,19 +10,19 @@ import { v4 as uuidV4 } from 'uuid';
 @Entity('tags')
 export class Tag {
 	@PrimaryColumn()
-	id: string;
+	id!: string;
 
 	@Column()
-	name: string;
+	name!: string;
 
 	@Column()
-	description: string;
+	description!: string;
 
 	@CreateDateColumn()
-	createdAt: Date;
+	createdAt!: Date;
 
 	@UpdateDateColumn()
-	updatedAt: Date;
+	updatedAt!: Date;
 
 	constructor() {
 		if (!this.id) {

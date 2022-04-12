@@ -1,4 +1,3 @@
-import { query } from 'express';
 import type { MigrationInterface, QueryRunner } from 'typeorm';
 import { Table } from 'typeorm';
 
