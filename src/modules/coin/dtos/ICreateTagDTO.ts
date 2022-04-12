@@ -1,4 +1,4 @@
 export interface ICreateTagDTO {
-    name: string;
-    description: string;
+	name: string;
+	description: string;
 }

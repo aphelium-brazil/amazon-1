@@ -1,25 +1,20 @@
-import { ICreateTagDTO } from "@modules/coin/dtos/ICreateTagDTO";
-import { Tag } from "@modules/coin/entities/Tag";
-import { ITagsRepository } from "../interfaces/ITagsRepository";
+import type { ICreateTagDTO } from '@modules/coin/dtos/ICreateTagDTO';
+import { Tag } from '@modules/coin/entities/Tag';
+import type { ITagsRepository } from '../interfaces/ITagsRepository';
 
-export class TagRepositoryInMemory
-    implements ITagsRepository
-{
-    tags: Tag[] = [];
-    
-    async create({
-        name,
-        description,
-    }: ICreateTagDTO): Promise<Tag> {
-        const tag = new Tag();
+export class TagRepositoryInMemory implements ITagsRepository {
+	tags: Tag[] = [];
 
-        Object.assign(tag, {
-            name,
-            description,
-        });
+	async create({ name, description }: ICreateTagDTO): Promise<Tag> {
+		const tag = new Tag();
 
-        this.tags.push(tag);
+		Object.assign(tag, {
+			name,
+			description
+		});
 
-        return tag;
-    }
+		this.tags.push(tag);
+
+		return tag;
+	}
 }
