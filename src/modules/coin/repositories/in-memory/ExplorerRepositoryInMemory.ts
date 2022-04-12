@@ -1,24 +1,21 @@
-import { ICreateExplorerDTO } from "@modules/coin/dtos/ICreateExplorerDTO";
-import { Explorer } from "@modules/coin/entities/Explorer";
-import { IExplorerRepository } from "../interfaces/IExplorerRepository";
+import type { ICreateExplorerDTO } from '@modules/coin/dtos/ICreateExplorerDTO';
+import { Explorer } from '@modules/coin/entities/Explorer';
+import type { IExplorerRepository } from '../interfaces/IExplorerRepository';
 
 export class ExplorerRepositoryInMemory implements IExplorerRepository {
-    explorers: Explorer[] = [];
-    async create({
-        name,
-        description,
-        url,
-    }: ICreateExplorerDTO): Promise<Explorer> {
-        const explorer = new Explorer();
+	explorers: Explorer[] = [];
 
-        Object.assign(explorer, {
-            name,
-            description,
-            url,
-        });
+	async create({ name, description, url }: ICreateExplorerDTO): Promise<Explorer> {
+		const explorer = new Explorer();
 
-        this.explorers.push(explorer);
+		Object.assign(explorer, {
+			name,
+			description,
+			url
+		});
 
-        return explorer;
-    }
+		this.explorers.push(explorer);
+
+		return explorer;
+	}
 }

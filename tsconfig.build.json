@@ -1,0 +1,8 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		// Recent target == faster code
+		"target": "ES2022"
+	},
+	"include": ["src"]
+}

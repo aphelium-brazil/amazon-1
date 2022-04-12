@@ -1,74 +1,41 @@
 {
-    "env": {
-        "es2020": true,
-        "node": true,
-        "jest": true
-    },
-    "extends": [
-        "airbnb-base",
-        "plugin:@typescript-eslint/recommended",
-        "prettier",
-        "plugin:prettier/recommended"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "@typescript-eslint",
-        "eslint-plugin-import-helpers",
-        "prettier"
-    ],
-    "rules": {
-        "prettier/prettier": "error",
-        "camelcase": "off",
-        "import/no-unresolved": "error",
-        "@typescript-eslint/naming-convention": [
-            "error",
-            {
-                "selector": "interface",
-                "format": ["PascalCase"],
-                "custom": {
-                    "regex": "^I[A-Z]",
-                    "match": true
-                }
-            }
-        ],
-        "class-methods-use-this": "off",
-        "import/prefer-default-export": "off",
-        "no-shadow": "off",
-        "no-console": "off",
-        "no-useless-constructor": "off",
-        "no-empty-function": "off",
-        "lines-between-class-members": "off",
-        "import/extensions": [
-            "error",
-            "ignorePackages",
-            {
-                "ts": "never"
-            }
-        ],
-        "import-helpers/order-imports": [
-            "warn",
-            {
-                "newlinesBetween": "always",
-                "groups": [
-                    "module",
-                    "/^@shared/",
-                    ["parent", "sibling", "index"]
-                ],
-                "alphabetize": { "order": "asc", "ignoreCase": true }
-            }
-        ],
-        "import/no-extraneous-dependencies": [
-            "error",
-            { "devDependencies": ["**/*.spec.js"] }
-        ]
-    },
-    "settings": {
-        "import/resolver": {
-            "typescript": {}
-        }
-    }
+	"parser": "@typescript-eslint/parser",
+	"plugins": ["@typescript-eslint"],
+	"root": true,
+	"env": { "node": true },
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:@typescript-eslint/recommended-requiring-type-checking",
+		"plugin:prettier/recommended"
+	],
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"project": "./tsconfig.json"
+	},
+	"rules": {
+		// Promises mistakes that costs performance
+		"no-return-await": "error",
+		"no-await-in-loop": "error",
+
+		// Related to possible logic errors
+		"no-unused-private-class-members": "error",
+		"no-unreachable-loop": "error",
+
+		// Typings
+		"@typescript-eslint/no-unsafe-assignment": "off",
+		"@typescript-eslint/restrict-template-expressions": "off",
+		"@typescript-eslint/array-type": ["error", { "default": "array-simple" }],
+
+		// Logics and code
+		"no-shadow": "off",
+		"@typescript-eslint/require-await": "off",
+		"@typescript-eslint/prefer-readonly": "error",
+		"@typescript-eslint/no-misused-new": "error",
+		"@typescript-eslint/no-shadow": ["error"],
+		"@typescript-eslint/lines-between-class-members": "error",
+		"@typescript-eslint/no-misused-promises": "error",
+		"@typescript-eslint/consistent-type-imports": "error"
+	}
 }
