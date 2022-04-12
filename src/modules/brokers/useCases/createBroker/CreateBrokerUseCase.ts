@@ -25,7 +25,7 @@ export class CreateBrokerUseCase {
 		slug,
 		logo,
 		dateLaunched
-	}: IRequest): Promise<Broker | undefined> {
+	}: IRequest): Promise<Broker | null> {
 		const brokerAlreadyExists = await this.brokerRepository.findByName(name);
 
 		if (brokerAlreadyExists) {

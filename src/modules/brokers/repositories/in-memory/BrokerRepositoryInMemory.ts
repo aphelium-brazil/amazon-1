@@ -6,11 +6,11 @@ export class BrokerRepositoryInMemory implements IBrokerRepository {
 	brokers: Broker[] = [];
 
 	async findById(id: string) {
-		return this.brokers.find((broker) => broker.id === id);
+		return this.brokers.find((broker) => broker.id === id) || null;
 	}
 
 	async findByName(name: string) {
-		return this.brokers.find((broker) => broker.name === name);
+		return this.brokers.find((broker) => broker.name === name) || null;
 	}
 
 	async create({
