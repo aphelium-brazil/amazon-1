@@ -1,6 +1,7 @@
 import type { ICreateCoinDTO } from '@modules/coin/dtos/ICreateCoinDTO';
 import type { ICoinsRepository } from '@modules/coin/repositories/interfaces/ICoinRepository';
 import type { Repository } from 'typeorm';
+import { In } from 'typeorm';
 import { getRepository } from 'typeorm';
 
 import type { IUpdateCoinDTO } from '../dtos/IUpdateCoinDTO';
@@ -44,15 +45,15 @@ export class CoinsRepository implements ICoinsRepository {
 	}
 
 	async findByIds(ids: string[]): Promise<Coin[]> {
-		return this.repository.findByIds(ids);
+		return this.repository.findBy({ id: In(ids) });
 	}
 
 	async findByName(name: string) {
-		return this.repository.findOne({ name });
+		return this.repository.findOne({ where: { name } });
 	}
 
 	async findBySymbol(symbol: string) {
-		return this.repository.findOne({ symbol });
+		return this.repository.findOne({ where: { symbol } });
 	}
 
 	async update({
@@ -67,7 +68,7 @@ export class CoinsRepository implements ICoinsRepository {
 		firstHistoricalData,
 		lastHistoricalData
 	}: IUpdateCoinDTO) {
-		const oldCoin = await this.repository.findOne({ id });
+		const oldCoin = await this.repository.findOne({ where: { id } });
 
 		if (!oldCoin) {
 			return false;

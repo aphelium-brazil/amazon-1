@@ -8,8 +8,8 @@ export interface ICoinsRepository {
 
 	findByIds(ids: string[]): Promise<Coin[]>;
 
-	findByName(name: string): Promise<Coin | undefined>;
-	findBySymbol(symbol: string): Promise<Coin | undefined>;
+	findByName(name: string): Promise<Coin | null>;
+	findBySymbol(symbol: string): Promise<Coin | null>;
 
 	update(data: IUpdateCoinDTO): Promise<boolean>;
 

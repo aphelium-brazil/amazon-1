@@ -11,7 +11,7 @@ export class CoinRepositoryInMemory implements ICoinsRepository {
 	}
 
 	async findBySymbol(symbol: string) {
-		return this.coins.find((coin) => coin.symbol === symbol);
+		return this.coins.find((coin) => coin.symbol === symbol) || null;
 	}
 
 	async findByIds(ids: string[]): Promise<Coin[]> {
@@ -19,7 +19,7 @@ export class CoinRepositoryInMemory implements ICoinsRepository {
 	}
 
 	async findByName(name: string) {
-		return this.coins.find((coin) => coin.name === name);
+		return this.coins.find((coin) => coin.name === name) || null;
 	}
 
 	async create({

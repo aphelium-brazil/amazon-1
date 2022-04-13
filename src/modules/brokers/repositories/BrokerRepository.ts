@@ -13,11 +13,15 @@ export class BrokersRepository implements IBrokerRepository {
 	}
 
 	async findById(id: string) {
-		return this.repository.findOne(id);
+		return this.repository.findOne({
+			where: { id }
+		});
 	}
 
 	async findByName(name: string) {
-		return this.repository.findOne({ name });
+		return this.repository.findOne({
+			where: { name }
+		});
 	}
 
 	async create({
@@ -39,7 +43,6 @@ export class BrokersRepository implements IBrokerRepository {
 			swaps
 		});
 
-		await this.repository.save(broker);
-		return broker;
+		return this.repository.save(broker);
 	}
 }
