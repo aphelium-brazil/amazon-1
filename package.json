@@ -24,7 +24,7 @@
 		"@sentry/node": "^6.19.6",
 		"@sentry/tracing": "^6.19.6",
 		"@types/ascii-art": "^1.4.0",
-		"aws-sdk": "^2.1116.0",
+		"aws-sdk": "^2.1118.0",
 		"bcrypt": "^5.0.1",
 		"class-transformer": "^0.5.1",
 		"cors": "^2.8.5",
