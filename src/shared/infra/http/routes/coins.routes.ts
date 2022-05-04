@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 
 import { CreateCoinController } from '@modules/coin/useCases/createCoin/CreateCoinController';
+import { CreateTechDocsController } from '@modules/coin/useCases/createTechDocs/CreateTechDocsController';
 import { FindCoinByIdController } from '@modules/coin/useCases/findCoinById/FindCoinByIdController';
 import { ImportCoinsController } from '@modules/coin/useCases/importCoins/ImportCoinsController';
 import { ListCoinsController } from '@modules/coin/useCases/listCoins/ListCoinsController';
@@ -22,6 +23,7 @@ const findCoinByIdController = new FindCoinByIdController();
 const removeCoinController = new RemoveCoinController();
 const updateCoinController = new UpdateCoinController();
 const listCoinsController = new ListCoinsController();
+const createTechDocController = new CreateTechDocsController();
 
 coinsRoutes.post('/import', upload.single('file'), importCoinsController.handle);
 coinsRoutes.post('/', createCoinController.handle);
@@ -29,3 +31,7 @@ coinsRoutes.delete('/:id', removeCoinController.handle);
 coinsRoutes.put('/:id', updateCoinController.handle);
 coinsRoutes.get('/:id', findCoinByIdController.handle);
 coinsRoutes.get('/', listCoinsController.handle);
+
+// Rotas de Criação de TechDocs
+
+coinsRoutes.post('/:id/techdocs', createTechDocController.handle);
