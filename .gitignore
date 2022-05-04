@@ -7,3 +7,4 @@ coverage
 dist
 ormconfig.json
 package-lock.json
+yarn.lock
