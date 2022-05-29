@@ -1,5 +1,5 @@
 export interface ICreateSwapRelationDTO {
-	swapId: string;
-	fromId: string;
-	toId: string;
+    swapId: string;
+    fromId: string;
+    toId: string;
 }

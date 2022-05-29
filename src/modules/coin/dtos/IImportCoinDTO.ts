@@ -1,19 +1,19 @@
 export interface IImportCoinDTO {
-	name: string;
+    name: string;
 
-	isFiat: boolean;
+    isFiat: boolean;
 
-	country?: string;
+    country?: string;
 
-	description: string;
+    description: string;
 
-	logo: string;
+    logo: string;
 
-	symbol: string;
+    symbol: string;
 
-	isActive: boolean;
+    isActive: boolean;
 
-	firstHistoricalData?: string;
+    firstHistoricalData?: string;
 
-	lastHistoricalData?: string;
+    lastHistoricalData?: string;
 }

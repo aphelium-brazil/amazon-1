@@ -1,32 +1,32 @@
 import {
-	PrimaryColumn,
-	Column,
-	Entity,
-	CreateDateColumn,
-	UpdateDateColumn
-} from 'typeorm';
-import { v4 as uuidV4 } from 'uuid';
+    PrimaryColumn,
+    Column,
+    Entity,
+    CreateDateColumn,
+    UpdateDateColumn,
+} from "typeorm";
+import { v4 as uuidV4 } from "uuid";
 
-@Entity('tags')
+@Entity("tags")
 export class Tag {
-	@PrimaryColumn()
-	id!: string;
+    @PrimaryColumn()
+    id!: string;
 
-	@Column()
-	name!: string;
+    @Column()
+    name!: string;
 
-	@Column()
-	description!: string;
+    @Column()
+    description!: string;
 
-	@CreateDateColumn()
-	createdAt!: Date;
+    @CreateDateColumn()
+    createdAt!: Date;
 
-	@UpdateDateColumn()
-	updatedAt!: Date;
+    @UpdateDateColumn()
+    updatedAt!: Date;
 
-	constructor() {
-		if (!this.id) {
-			this.id = uuidV4();
-		}
-	}
+    constructor() {
+        if (!this.id) {
+            this.id = uuidV4();
+        }
+    }
 }

@@ -1,5 +1,5 @@
 export interface ICreateExplorerDTO {
-	name: string;
-	description: string;
-	url: string;
+    name: string;
+    description: string;
+    url: string;
 }

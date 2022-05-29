@@ -1,4 +1,4 @@
 export interface ISwapAvailableInBrokerDTO {
-	brokerId: string;
-	swaps: string[];
+    brokerId: string;
+    swaps: string[];
 }

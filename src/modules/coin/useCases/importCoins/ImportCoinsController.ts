@@ -1,22 +1,22 @@
-import type { Request, Response } from 'express';
-import { container } from 'tsyringe';
+import type { Request, Response } from "express";
+import { container } from "tsyringe";
 
-import { ImportCoinsUseCase } from './ImportCoinsUseCase';
+import { ImportCoinsUseCase } from "./ImportCoinsUseCase";
 
 export class ImportCoinsController {
-	async handle(request: Request, response: Response): Promise<Response> {
-		const { file } = request;
+    async handle(request: Request, response: Response): Promise<Response> {
+        const { file } = request;
 
-		if (!file) {
-			return response.status(400).json({
-				message: 'File not found'
-			});
-		}
+        if (!file) {
+            return response.status(400).json({
+                message: "File not found",
+            });
+        }
 
-		const importCoinsUseCase = container.resolve(ImportCoinsUseCase);
+        const importCoinsUseCase = container.resolve(ImportCoinsUseCase);
 
-		await importCoinsUseCase.execute(file);
+        await importCoinsUseCase.execute(file);
 
-		return response.status(201).send();
-	}
+        return response.status(201).send();
+    }
 }
