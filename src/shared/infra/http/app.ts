@@ -8,12 +8,13 @@ import swaggerUi from "swagger-ui-express";
 import "@shared/container";
 
 import { AppError } from "@shared/errors/AppError";
-import createConnection from "@shared/infra/typeorm";
+import { createConnection } from "@shared/infra/postgres";
 
 import swaggerFile from "../../../swagger.json";
 import { router } from "./routes";
 
-createConnection().catch(console.error);
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
+createConnection();
 
 export const app = express();
 

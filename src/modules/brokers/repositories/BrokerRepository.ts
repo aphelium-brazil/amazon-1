@@ -1,45 +1,18 @@
 import type { ICreateBrokerDTO } from "@modules/brokers/dtos/ICreateBrokerDTO";
 import type { IBrokerRepository } from "@modules/brokers/repositories/interfaces/IBrokerRepository";
-import type { Repository } from "typeorm";
-import { getRepository } from "typeorm";
 
-import { Broker } from "../entities/Broker";
+import type { Broker } from "../entities/Broker";
 
 export class BrokersRepository implements IBrokerRepository {
-    private readonly repository: Repository<Broker>;
-
-    constructor() {
-        this.repository = getRepository(Broker);
+    create(data: ICreateBrokerDTO): Promise<Broker | undefined> {
+        throw new Error("Method not implemented.");
     }
 
-    async findById(id: string) {
-        return this.repository.findOne(id);
+    findById(id: string): Promise<Broker | undefined> {
+        throw new Error("Method not implemented.");
     }
 
-    async findByName(name: string) {
-        return this.repository.findOne({ name });
-    }
-
-    async create({
-        id,
-        name,
-        description,
-        slug,
-        logo,
-        dateLaunched,
-        swaps,
-    }: ICreateBrokerDTO): Promise<Broker> {
-        const broker = this.repository.create({
-            id,
-            name,
-            description,
-            slug,
-            logo,
-            dateLaunched,
-            swaps,
-        });
-
-        await this.repository.save(broker);
-        return broker;
+    findByName(name: string): Promise<Broker | undefined> {
+        throw new Error("Method not implemented.");
     }
 }

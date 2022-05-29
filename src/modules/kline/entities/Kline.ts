@@ -1,39 +1,29 @@
-import { IntervalEnums } from "@modules/kline/enums/IntervalEnums";
-import {
-    Column,
-    CreateDateColumn,
-    Entity,
-    PrimaryColumn,
-    UpdateDateColumn,
-} from "typeorm";
 import { v4 as uuidV4 } from "uuid";
+import type { IntervalEnums } from "../enums/IntervalEnums";
 
-@Entity("klines")
 export class Kline {
-    @PrimaryColumn()
     id!: string;
 
-    @Column({
-        type: "enum",
-        enum: IntervalEnums,
-    })
     interval!: IntervalEnums;
 
-    @Column()
     swapId!: string;
 
-    @Column()
     brokerId!: string;
 
-    @CreateDateColumn()
     createdAt!: Date;
 
-    @UpdateDateColumn()
     updatedAt!: Date;
+
+    deletedAt!: Date;
 
     constructor() {
         if (!this.id) {
             this.id = uuidV4();
+            this.createdAt = new Date();
+            this.updatedAt = new Date();
+        }
+        if (this.id) {
+            this.updatedAt = new Date();
         }
     }
 }
