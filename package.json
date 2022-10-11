@@ -21,7 +21,7 @@
 		"build": "tsc -p tsconfig.build.json"
 	},
 	"dependencies": {
-		"@sentry/node": "^6.19.6",
+		"@sentry/node": "^7.15.0",
 		"@sentry/tracing": "^6.19.6",
 		"@types/ascii-art": "^1.4.0",
 		"aws-sdk": "^2.1127.0",
